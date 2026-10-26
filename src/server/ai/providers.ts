@@ -2,12 +2,14 @@
 // Provider adapters. Each streams SSE, normalizes text/usage/stop reason, and throws AiError.
 import { AiError, classifyHttp } from './errors';
 import type { ChatMessage, ModelEntry, ProviderCallResult } from './types';
+import { createResponsesCall } from './responses.server';
 
 export interface ProviderCall {
   entry: ModelEntry;
   messages: ChatMessage[];
   maxTokens: number;
   json?: boolean;
+  outputSchema?: Record<string, unknown>;
   signal: AbortSignal;
   onText: (t: string) => void;
   fetchImpl?: typeof fetch;
@@ -116,4 +118,26 @@ export async function callOpenAICompatible(call: ProviderCall): Promise<Provider
   return { content, usage, stopReason: stopReason === 'length' ? 'length' : stopReason || (content ? 'end' : '') };
 }
 
-export const ADAPTERS = { anthropic_messages: callAnthropicMessages, openai_compatible: callOpenAICompatible };
+export async function callOpenAIResponses(call: ProviderCall): Promise<ProviderCallResult> {
+  const instructions = call.messages.filter(m => m.role === 'system').map(m => m.content).join('\n\n');
+  const messages = call.messages.filter(m => m.role !== 'system');
+  const { result } = createResponsesCall(new Request(call.entry.baseUrl, { signal: call.signal }), {
+    baseURL: 'https://ai.gateway.lovable.dev/v1', apiKey: key(call.entry), model: call.entry.model,
+  }, messages, instructions, { maxOutputTokens: call.maxTokens, schema: call.outputSchema });
+  let content = '';
+  try {
+    for await (const part of result.fullStream) {
+      if (part.type === 'text-delta') { content += part.text; call.onText(part.text); }
+      if (part.type === 'error') throw part.error;
+    }
+    if (call.outputSchema) await result.output;
+    const usage = await result.usage;
+    return { content, stopReason: await result.finishReason, usage: { inputTokens: usage.inputTokens, outputTokens: usage.outputTokens } };
+  } catch (error) {
+    if (call.signal.aborted) throw new AiError('cancelled', 'Request cancelled.');
+    if (typeof error?.statusCode === 'number') throw classifyHttp(error.statusCode, error.responseBody || '', null, call.entry.provider);
+    throw error instanceof AiError ? error : new AiError('malformed', 'The AI response could not be validated.');
+  }
+}
+
+export const ADAPTERS = { anthropic_messages: callAnthropicMessages, openai_compatible: callOpenAICompatible, openai_responses: callOpenAIResponses };

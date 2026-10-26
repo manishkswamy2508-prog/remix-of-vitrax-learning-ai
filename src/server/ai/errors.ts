@@ -53,7 +53,7 @@ function defaultStatus(kind: AiErrorKind): number {
 export const isRetryableSameModel = (k: AiErrorKind) => k === 'overloaded' || k === 'upstream' || k === 'timeout';
 /** Worth trying a different eligible model. Refusals, cancellations and bad requests are not. */
 export const isFallbackEligible = (k: AiErrorKind) =>
-  ['rate_limit', 'quota', 'auth', 'permission', 'timeout', 'overloaded', 'upstream', 'empty', 'malformed', 'context_length', 'not_configured'].includes(k);
+  ['rate_limit', 'overloaded', 'upstream'].includes(k);
 
 export function parseRetryAfter(value: string | null | undefined, now = Date.now()): number | undefined {
   if (!value) return undefined;
@@ -67,9 +67,11 @@ export function classifyHttp(status: number, bodyText: string, retryAfter?: stri
   const lower = bodyText.toLowerCase();
   const retryAfterMs = parseRetryAfter(retryAfter);
   const o = { status, retryAfterMs, provider };
+  let safeMessage: string | undefined;
+  try { const parsed = JSON.parse(bodyText); const message = parsed.message || parsed.error?.message; if (typeof message === 'string') safeMessage = message.slice(0, 1200); } catch { /* not JSON */ }
   if (status === 401) return new AiError('auth', 'Provider rejected the credentials.', o);
-  if (status === 402 || /insufficient_quota|billing|credit/.test(lower)) return new AiError('quota', 'Provider quota or credits are exhausted.', { ...o, status: 402 });
-  if (status === 403) return new AiError('permission', 'Provider denied access to this model.', o);
+  if (status === 403) return new AiError('permission', safeMessage || 'Provider denied access to this model.', o);
+  if (status === 402) return new AiError('quota', safeMessage || 'Provider quota or credits are exhausted.', o);
   if (status === 429) return new AiError('rate_limit', 'Provider rate limit reached.', o);
   if (status === 413 || /context length|context_length|too many tokens|prompt is too long/.test(lower)) return new AiError('context_length', 'The request is too long for this model.', { ...o, status: 400 });
   if (status === 400 || status === 404 || status === 422) return new AiError('invalid_request', 'Provider rejected the request.', o);
@@ -82,11 +84,12 @@ export function classifyHttp(status: number, bodyText: string, retryAfter?: stri
 export function publicMessage(e: AiError): string {
   const wait = e.retryAfterMs ? ` Try again in about ${Math.max(1, Math.ceil(e.retryAfterMs / 1000))} seconds.` : ' Please try again shortly.';
   switch (e.kind) {
+    case 'permission': case 'quota': case 'auth': return e.message;
     case 'local_limit': return e.message;
     case 'unavailable': return `All configured AI models are busy or out of capacity right now.${wait} Your message was kept.`;
     case 'not_configured': return 'No AI provider is configured on the server. An administrator must add a provider key.';
-    case 'refusal': return 'The model declined this request. Try rephrasing it.';
-    case 'invalid_request': return 'The request could not be processed by the AI model. Try shortening or simplifying it.';
+    case 'refusal': return 'The model declined this request.';
+    case 'invalid_request': return e.message;
     case 'context_length': return 'This request is too long for the available models. Use a shorter source or excerpt.';
     case 'cancelled': return 'The request was cancelled.';
     case 'timeout': return `The AI model took too long to respond.${wait}`;

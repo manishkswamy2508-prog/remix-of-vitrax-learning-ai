@@ -11,7 +11,7 @@ export interface ChatMessage { role: ChatRole; content: string | ContentPart[] }
 export type AiTask = 'chat_quick' | 'chat' | 'reasoning' | 'document' | 'study_pack' | 'code';
 export type Capability = 'streaming' | 'vision' | 'json' | 'long_context';
 export type ModelTier = 'free' | 'paid' | 'self_hosted';
-export type ProviderKind = 'anthropic_messages' | 'openai_compatible';
+export type ProviderKind = 'anthropic_messages' | 'openai_compatible' | 'openai_responses';
 
 export interface ModelEntry {
   /** Stable registry id, e.g. "lovable:anthropic/claude-sonnet-5". */
@@ -47,6 +47,7 @@ export interface AiRequest {
   maxTokens?: number;
   /** Ask for a single JSON object. */
   json?: boolean;
+  outputSchema?: Record<string, unknown>;
   /** Optional preferred registry id or provider model id. */
   preferredModel?: string;
   signal?: AbortSignal;
