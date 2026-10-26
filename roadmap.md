@@ -4,6 +4,8 @@
 - [x] Code workspace layout spacing + responsive panels
 - [x] Codex-style AI agent in Code workspace
 - [ ] Code workspace: sending messages to agent works
+- [ ] Add Claude/Codex agent choice and shared chatbot/Codespace provider selection
+- [ ] Audit uploaded provider archives and connect compatible, authorized APIs
 - [ ] Smooth motion while AI answers stream in chat
 - [x] Menu button in Library
 - [x] Black + lime theme with light/dark switch
