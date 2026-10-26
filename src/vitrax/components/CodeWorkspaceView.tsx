@@ -19,17 +19,21 @@ import {
   X,
 } from 'lucide-react';
 import { CodeProject } from '../types';
+import type { ModelInfo } from '../types';
+import { Button } from '@/components/ui/button';
 
 interface CodeWorkspaceViewProps {
   projects: CodeProject[];
   onUpdateProjects: (projects: CodeProject[]) => void;
   onToggleSidebar?: () => void;
+  models: ModelInfo[];
 }
 
 export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
   projects,
   onUpdateProjects,
   onToggleSidebar,
+  models,
 }) => {
   const [activeProjectId, setActiveProjectId] = useState<string>(projects[0]?.id || '');
   const currentProject = projects.find(p => p.id === activeProjectId) || projects[0];
@@ -50,11 +54,13 @@ export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
 
   // AI-generated changes are local drafts; they are not written to the user's project directory.
   const [agentPrompt, setAgentPrompt] = useState('');
+  const [agent, setAgent] = useState<'claude' | 'codex'>('codex');
+  const [agentModel, setAgentModel] = useState('auto');
   const [isAgentWorking, setIsAgentWorking] = useState(false);
   const [agentLogs, setAgentLogs] = useState<{ role: 'user' | 'agent'; message: string; plan?: string; updatedFiles?: string[] }[]>([
     {
       role: 'agent',
-      message: 'Codex agent ready. Describe a change — I will plan it, patch the files in this workspace, and summarize what changed. Code is not executed automatically; check the preview.',
+      message: 'Ready for your coding request.',
     }
   ]);
 
@@ -217,7 +223,9 @@ export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           prompt: userQuery,
-          currentFiles: currentProject.files,
+          agent,
+          model: agentModel,
+          currentFiles: { ...currentProject.files, [activeFile]: editorContent },
           activeFile,
           history: agentLogs.slice(-8).map(l => ({ role: l.role, message: l.message })),
         }),
@@ -253,6 +261,8 @@ export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
         {
           role: 'agent',
           message: data.summary || 'Project updated successfully.',
+          model: data.model,
+          agent: data.agent,
           plan: data.plan,
           updatedFiles: Object.keys(updatedFiles),
         }
@@ -563,9 +573,19 @@ export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
             <div className="px-3 h-9 border-b border-slate-800/80 flex items-center justify-between">
               <span className="text-xs font-bold text-white flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-teal-400" />
-                Codex Agent
+                {agent === 'claude' ? 'Claude' : 'Codex'} Agent
               </span>
               <span className="flex items-center gap-2"><span className="text-[10px] text-slate-500 font-mono">{isAgentWorking ? 'working…' : 'ready'}</span><button onClick={() => setAssistantOpen(false)} className="lg:hidden p-1 rounded text-slate-400 hover:text-white" aria-label="Close agent"><X className="w-3.5 h-3.5" /></button></span>
+            </div>
+
+            <div className="border-b border-border p-3 space-y-2">
+              <div className="flex gap-2" role="group" aria-label="Coding agent">
+                {(['codex', 'claude'] as const).map(choice => <Button key={choice} size="sm" variant={agent === choice ? 'default' : 'outline'} disabled={isAgentWorking} onClick={() => { setAgent(choice); setAgentModel('auto'); }} aria-pressed={agent === choice}>{choice === 'claude' ? 'Claude' : 'Codex'}</Button>)}
+              </div>
+              <select aria-label="Agent model" value={agentModel} onChange={e => setAgentModel(e.target.value)} disabled={isAgentWorking} className="w-full min-w-0 rounded-md border border-input bg-background text-foreground px-2 py-2 text-xs">
+                <option value="auto">{agent === 'claude' ? 'Claude Sonnet 5' : 'GPT-6 Astra'} · default</option>
+                {models.map(model => <option key={model.id} value={model.id}>{model.name} · {model.provider}</option>)}
+              </select>
             </div>
 
             <div className="flex-1 overflow-y-auto p-3 space-y-3">
@@ -579,7 +599,7 @@ export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
                   }`}
                 >
                   <div className="flex items-center justify-between text-[10px] font-mono text-slate-500">
-                    <span>{log.role === 'user' ? 'YOU' : 'CODEX'}</span>
+                    <span>{log.role === 'user' ? 'YOU' : log.model || 'VITRAX AI'}</span>
                   </div>
                   <p className="leading-relaxed whitespace-pre-wrap">{log.message}</p>
 
@@ -600,7 +620,7 @@ export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
               {isAgentWorking && (
                 <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-cyan-300 flex items-center gap-2 animate-pulse">
                   <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                  <span>Codex is planning and patching your files…</span>
+                  <span>{agent === 'claude' ? 'Claude' : 'Codex'} is preparing changes…</span>
                 </div>
               )}
             </div>
@@ -626,19 +646,21 @@ export const CodeWorkspaceView: React.FC<CodeWorkspaceViewProps> = ({
               <div className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl p-1.5 focus-within:border-teal-500">
                 <input
                   type="text"
+                  aria-label="Coding request"
                   placeholder="Describe a feature, refactor, or bug to fix..."
                   value={agentPrompt}
                   onChange={e => setAgentPrompt(e.target.value)}
                   disabled={isAgentWorking}
                   className="flex-1 bg-transparent px-2 text-xs text-white focus:outline-none placeholder-slate-500"
                 />
-                <button
+                <Button
                   type="submit"
+                  aria-label="Send coding request"
                   disabled={!agentPrompt.trim() || isAgentWorking}
-                  className="p-1.5 bg-teal-500 hover:bg-teal-400 disabled:opacity-40 text-slate-950 rounded-lg transition-colors"
+                  size="icon"
                 >
                   <Send className="w-3.5 h-3.5" />
-                </button>
+                </Button>
               </div>
             </form>
           </div>

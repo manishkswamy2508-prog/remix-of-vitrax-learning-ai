@@ -414,7 +414,7 @@ export default function App() {
           onGenerateDocumentPdf={handleCreateDocumentPdf}
         />}
 
-        {(currentView === 'code' || currentView === 'projects') && <CodeWorkspaceView projects={projects} onUpdateProjects={setProjects} onToggleSidebar={() => setSidebarOpen(open => !open)} />}
+        {(currentView === 'code' || currentView === 'projects') && <CodeWorkspaceView projects={projects} models={models} onUpdateProjects={setProjects} onToggleSidebar={() => setSidebarOpen(open => !open)} />}
 
         {currentView === 'library' && <LibraryView
           documents={documents}

@@ -286,7 +286,7 @@ export const ChatView: React.FC<ChatViewProps> = ({
           <div className="relative">
             <button onClick={() => setActiveMenu(activeMenu === 'model' ? null : 'model')} className="model-pill" aria-expanded={activeMenu === 'model'}>
               <span className="model-pulse" />
-              <span className="max-w-[135px] truncate">{selectedModel === 'auto' ? 'Auto model' : models.find(model => model.id === selectedModel)?.id || selectedModel}</span>
+              <span className="max-w-[135px] truncate">{selectedModel === 'auto' ? 'Auto model' : models.find(model => model.id === selectedModel)?.name || selectedModel}</span>
               <ChevronDown size={14} className="text-slate-400" />
             </button>
             {activeMenu === 'model' && (
