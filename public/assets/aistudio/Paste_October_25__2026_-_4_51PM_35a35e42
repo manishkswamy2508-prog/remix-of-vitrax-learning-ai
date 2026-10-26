@@ -1,0 +1,650 @@
+# VITRAX AI 2.0: INTELLIGENCE, COMPUTE, SPEED & ACCURACY MASTER PROMPT
+
+## ROLE AND OBJECTIVE
+
+Act as a principal AI systems architect, inference-performance engineer, machine-learning researcher, senior full-stack developer and product designer.
+
+Upgrade my **existing VITRAX AI application** into a powerful, accurate, fast, general-purpose AI assistant with an effortless ChatGPT/Claude/Gemini-style interface and a genuinely capable coding workspace.
+
+This is an implementation task, not a brainstorming exercise.
+
+Inspect the existing source code, identify the causes of slow responses and poor answers, and directly improve the working application. Preserve functional components, integrations, data and useful existing code. Do not start over unnecessarily.
+
+My priorities, in order, are:
+
+1. Actually answer the user's question.
+2. Achieve the highest practical accuracy.
+3. Reduce unnecessary response latency.
+4. Use computational tools and available infrastructure intelligently.
+5. Provide a beautiful, clear thinking-status animation.
+6. Integrate suitable NVIDIA and open-source AI technologies.
+7. Make the intelligence architecture extensible without making the interface complicated.
+
+**The core vision is maximum useful intelligence per unit of time and compute.** Do not confuse long processing times, complicated interfaces, multiple model calls or impressive model labels with intelligence.
+
+---
+
+## 1. FIX THE CURRENT FAILURE BEFORE ADDING MORE FEATURES
+
+The current application sometimes takes too long to think, fails to provide an answer promptly, and has produced long document-generation instructions in response to ordinary messages.
+
+Perform a real technical audit.
+
+Inspect the complete request lifecycle:
+
+- User message submission.
+- Prompt construction.
+- Conversation history.
+- Model selection.
+- Provider API requests.
+- Tool execution.
+- Model routing.
+- Response streaming.
+- Response parsing.
+- Frontend state updates.
+- Errors, retries and cancellation.
+- Task-specific prompts.
+- Any background operations.
+
+Identify the actual causes of excessive latency, empty responses, duplicated calls, stuck generation and irrelevant answers.
+
+Do not hide bugs behind a loading animation. Fix them at the source.
+
+### Mandatory behaviour
+
+When a user asks a straightforward question, return a straightforward answer.
+
+When the user asks a complex technical question, use the appropriate level of analysis.
+
+When the user sends an incomplete message, ask a brief clarification.
+
+When a user requests a PDF, invoke the document workflow.
+
+When a user asks to build an application, invoke the coding workspace.
+
+Do not let specialised prompts leak into general chat. Do not inject a document-generation template into ordinary conversation.
+
+Never require the user to wait indefinitely for an answer.
+
+If a provider fails, times out or produces an empty response, handle the error properly and offer an appropriate retry or fallback. Do not automatically repeat expensive requests without limits.
+
+A model failure must not become an infinite loading indicator.
+
+---
+
+## 2. BUILD AN ADAPTIVE INTELLIGENCE ENGINE
+
+Create a genuine orchestration architecture called the **VITRAX Adaptive Intelligence Engine**.
+
+This is an internal product name, not a claim that a new foundation model has been trained.
+
+The engine should combine the capabilities of available models, deterministic computation, retrieval, coding tools and validation systems whenever these improve the result.
+
+The objective is to make the overall application substantially more capable than a basic single-call chatbot through better tool use, routing, context management and verification.
+
+Do not claim exponential intelligence improvements as a measurable fact without evidence.
+
+### A. Classify each request intelligently
+
+Before executing a task, classify its requirements using a lightweight operation.
+
+Determine whether the request needs:
+
+- A direct answer.
+- Multi-step reasoning.
+- Numerical computation.
+- Code execution.
+- Document analysis.
+- External research.
+- Retrieval from saved knowledge.
+- Image or file understanding.
+- Application development.
+- Additional verification.
+
+Use a small, fast classifier or rules combined with the selected model's capabilities where appropriate. Do not introduce an expensive model call merely to decide whether another model call is necessary.
+
+### B. Adapt computational effort to difficulty
+
+Implement an internal adaptive effort policy:
+
+**Simple task:** one suitable model call, minimal overhead, prompt streaming.
+
+**Moderate task:** a suitable model plus targeted computation, retrieval or a tool if needed.
+
+**Complex task:** structured planning, appropriate specialist tools, relevant evidence and selective verification.
+
+**High-stakes or error-sensitive technical task:** additional validation, explicit uncertainty and appropriate warnings where relevant.
+
+Do not send every message through a multi-stage reasoning pipeline.
+
+Do not call several models just because several models are available.
+
+Use the least expensive, fastest workflow that can reasonably meet the task's accuracy requirements.
+
+### C. Specialist capabilities
+
+Build a modular tool layer that can provide:
+
+- A calculator for reliable arithmetic.
+- Symbolic mathematics when compatible tooling is available.
+- Code execution and tests in an appropriate isolated environment.
+- Document extraction and retrieval.
+- Web research and source checking when browsing is configured.
+- Structured-data processing.
+- Local knowledge retrieval.
+- Model-based verification when justified.
+
+Each tool must return structured results, errors and provenance where applicable.
+
+Use actual computational results instead of asking an LLM to perform every calculation mentally.
+
+### D. Optional second-pass verification
+
+For difficult questions, the engine may run a second targeted verification pass.
+
+The verifier should check specific failure points, such as mathematical substitutions, incompatible assumptions, broken code, unsupported factual assertions or source mismatches.
+
+It should not rewrite the entire answer repeatedly.
+
+Stop verification when the required checks pass, when further checking has little expected benefit, or when a clearly defined compute or time budget is reached.
+
+If uncertainty remains, state it rather than continuing forever.
+
+---
+
+## 3. ADD A CLAUDE-STYLE THINKING ANIMATION
+
+Create a premium, subtle, informative processing experience inspired by the clear interaction patterns of leading AI assistants.
+
+The animation should make the application feel responsive and intelligent without exposing private reasoning or pretending to show hidden internal thoughts.
+
+### Visual appearance
+
+Use a polished animated indicator near the assistant's response.
+
+Possible treatments include a softly pulsing teal indicator, a small animated progress line, a refined shimmer and a concise status label.
+
+Avoid huge full-screen loaders, flashing effects, excessive particles and distracting animations.
+
+### Task-aware status messages
+
+Use meaningful statuses based on actual application events.
+
+Examples:
+
+- "Understanding your question"
+- "Preparing an answer"
+- "Calculating the result"
+- "Searching relevant sources"
+- "Reading your document"
+- "Checking the calculation"
+- "Running code tests"
+- "Preparing your response"
+
+Only show a verification, calculation, search or execution status when that operation is actually occurring.
+
+Do not display "Thinking deeply" for a simple response that is already being generated.
+
+Do not fabricate percentage-completion values. Use a percentage only when the underlying task can measure genuine progress.
+
+### Streaming animation
+
+Show the first useful part of the answer as soon as the configured provider starts producing tokens.
+
+The animation must never block the response until a large computation finishes.
+
+For complex tasks, show the current genuine stage while allowing intermediate results to appear when appropriate.
+
+When generation finishes, smoothly transition to the completed response and remove the active indicator.
+
+### State handling
+
+Implement correct states for:
+
+- Idle.
+- Request submitted.
+- Waiting for provider.
+- Streaming.
+- Genuine tool execution.
+- Verification.
+- Completed.
+- Cancelled.
+- Timed out.
+- Failed.
+
+Every state must have a defined exit condition.
+
+Never display a permanently active spinner after a request has ended.
+
+If a tool is slow, indicate which tool is working and allow cancellation where technically possible.
+
+**Important:** the animation communicates the status of real operations. It must not pretend to reveal an AI's private chain-of-thought.
+
+---
+
+## 4. OPTIMISE LATENCY AND COMPUTATIONAL EFFICIENCY
+
+I want VITRAX AI to start answering promptly rather than spending unnecessary time preparing for an answer.
+
+Profile actual latency before making changes.
+
+Measure, where available:
+
+- Time from submission to first visible response.
+- Time to first generated token.
+- Total response duration.
+- Time spent in each external API call.
+- Time spent in retrieval and tools.
+- Input and output token usage.
+- Failure and retry rates.
+- Verification overhead.
+- Cache effectiveness.
+
+### Required optimisations
+
+1. Stream model responses where supported.
+2. Remove duplicate provider calls.
+3. Avoid unnecessary sequential operations.
+4. Parallelise independent operations only when beneficial.
+5. Use concise, task-specific prompts.
+6. Avoid resending irrelevant conversation history.
+7. Summarise older context selectively while retaining important information.
+8. Use appropriate caching for reusable, non-sensitive results.
+9. Reuse connections and compatible clients where practical.
+10. Make cancellation stop supported underlying work rather than merely hiding the UI.
+11. Use bounded retries and appropriate timeouts.
+12. Load coding, document and research services only when necessary.
+13. Avoid running expensive verification for trivial questions.
+14. Keep frontend rendering responsive while tools execute.
+15. Handle provider rate limits without causing retry storms.
+
+Set sensible task-dependent budgets for simple, ordinary and complex requests. Base the budgets on measurements from the available environment instead of inventing universal latency guarantees.
+
+Do not reduce accuracy by arbitrarily cutting off answers. Prefer selecting better workflows, eliminating waste and streaming useful partial responses.
+
+Do not block every response behind a planner, verifier and synthesiser.
+
+---
+
+## 5. INTEGRATE NVIDIA TECHNOLOGY WHERE IT ACTUALLY HELPS
+
+Investigate suitable official NVIDIA tools and repositories.
+
+Potential integrations include:
+
+### NVIDIA NIM
+
+Official documentation:
+
+https://docs.nvidia.com/nim/
+
+NVIDIA NIM can provide model-inference services through supported APIs and deployments. Check the actual available models, API format, authentication requirements, usage terms and deployment options.
+
+Use a hosted endpoint when it fits the existing environment and is properly configured.
+
+If using a hosted NVIDIA inference API, integrate it through a secure server-side provider adapter.
+
+Do not claim that NIM has been installed locally when the application is actually calling a hosted endpoint.
+
+### NVIDIA TensorRT-LLM
+
+Official repository:
+
+https://github.com/NVIDIA/TensorRT-LLM
+
+Evaluate TensorRT-LLM for optimised model inference when suitable NVIDIA GPU infrastructure is available.
+
+Inspect its compatibility with the selected model, CUDA environment, dependencies and deployment platform before integrating it.
+
+Use it for the inference workload it is designed to accelerate. Do not install GPU-specific infrastructure into an incompatible browser-only environment.
+
+### NVIDIA NeMo
+
+Official repository:
+
+https://github.com/NVIDIA-NeMo
+
+Evaluate suitable NeMo components for model training, fine-tuning, evaluation or related workflows when the project's goals and infrastructure justify them.
+
+Do not treat model-training infrastructure as an automatic improvement to the answers of a running third-party API model.
+
+### NVIDIA GPU and cloud execution
+
+Detect the actual environment.
+
+If supported NVIDIA GPU compute is available, select compatible optimisation strategies.
+
+If not, use a properly configured remote inference service or another available backend.
+
+Do not claim to possess an NVIDIA GPU, additional VRAM, CUDA acceleration or unlimited processing power without verifying that the capability exists.
+
+Do not force the user's ordinary laptop to run an impractical large model locally.
+
+### NVIDIA integration acceptance criteria
+
+For each integration, verify:
+
+- Official repository or documentation.
+- License and applicable service terms.
+- Model and runtime compatibility.
+- Hardware requirements.
+- API or deployment configuration.
+- Security requirements.
+- Actual successful inference.
+- Measurable effect on latency or throughput.
+
+If an integration does not fit the application, document why and choose an appropriate alternative.
+
+---
+
+## 6. USE THE BEST SUITABLE OPEN-SOURCE AI COMPONENTS
+
+Research and evaluate maintained, compatible open-source tools instead of copying random AI repositories into the project.
+
+Potential candidates include:
+
+**Inference and model execution**
+- https://github.com/vllm-project/vllm
+- https://github.com/ggml-org/llama.cpp
+- https://github.com/ollama/ollama
+- https://github.com/huggingface/transformers
+- https://github.com/NVIDIA/TensorRT-LLM
+
+**Provider integration and routing**
+- https://github.com/BerriAI/litellm
+
+**Agent and workflow orchestration**
+- https://github.com/langchain-ai/langgraph
+
+**Document processing and retrieval**
+- https://github.com/docling-project/docling
+- https://github.com/run-llama/llama_index
+
+These repositories are candidates, not a mandatory installation list.
+
+Inspect their current documentation, APIs, releases, licenses and compatibility before making decisions. Some components solve overlapping problems, and integrating all of them could make the system slower and harder to maintain.
+
+### Required integration rules
+
+- Prefer official packages and documented APIs.
+- Reuse a compatible library when it genuinely reduces implementation work.
+- Never copy a repository wholesale without reviewing its purpose and license.
+- Do not remove license notices or attribution.
+- Do not treat every public repository as unrestricted source code.
+- Pin compatible versions where appropriate.
+- Audit dependencies and avoid abandoned or unnecessary packages.
+- Keep provider-specific functionality behind clean adapters.
+- Preserve the ability to change a model provider without redesigning the application.
+- Run actual integration tests after each meaningful addition.
+
+Do not add new infrastructure simply to make VITRAX AI look technologically advanced.
+
+---
+
+## 7. MAKE THE ANSWERS MORE PRECISE AND VERIFIABLE
+
+Use an evidence-first answer-generation strategy.
+
+### Mathematics and scientific problems
+
+When appropriate:
+
+1. Identify the actual problem and its assumptions.
+2. Select the relevant equation or governing model.
+3. Check units and dimensions.
+4. Use symbolic or numerical computation where useful.
+5. Verify substitutions and intermediate results.
+6. Cross-check the final answer.
+7. Present a clear, correctly formatted result.
+
+Do not apply formal calculations to ordinary questions where they offer no benefit.
+
+### Programming
+
+For code generation and debugging:
+
+- Inspect relevant source files.
+- Understand the existing architecture.
+- Generate focused changes.
+- Run available compilation and testing tools.
+- Read real error messages.
+- Fix confirmed problems.
+- Retest affected functionality.
+- Distinguish generated code from tested code.
+
+Do not mark code as verified if it has not been executed or checked.
+
+### Research and current facts
+
+When web access or trusted knowledge sources are available:
+
+- Retrieve relevant sources.
+- Prefer authoritative and primary sources.
+- Check dates where freshness matters.
+- Link factual claims to their supporting evidence.
+- Distinguish source-backed information from inference.
+- Identify conflicting evidence.
+- Avoid fabricating references, quotations or links.
+
+Do not perform external research for every trivial conversational question.
+
+### General response policy
+
+- Answer the exact question first.
+- Explain only what is useful.
+- Avoid repetition and unnecessary introductions.
+- Use concise paragraphs and readable formatting.
+- Provide detailed derivations when requested.
+- Acknowledge uncertainty when evidence is insufficient.
+- Never make up a result because the system is under time pressure.
+
+### Verification must be selective
+
+Independent verification has a cost.
+
+Use it when a wrong answer would be consequential, when computation is involved, when sources conflict, or when the task is sufficiently difficult.
+
+Do not run multiple models to verify a straightforward greeting or basic question.
+
+---
+
+## 8. BUILD A TRUSTWORTHY MODEL-ROUTING SYSTEM
+
+Use actual model capabilities and configured endpoints.
+
+The automatic router should select an appropriate available model based on task type, quality requirements, latency, cost and supported tools.
+
+Maintain a capability registry containing verified information such as:
+
+- Provider.
+- Actual model identifier.
+- Supported input types.
+- Context capacity.
+- Streaming support.
+- Tool-calling support.
+- Availability.
+- Relevant rate limits.
+- Measured latency, where available.
+- Cost information, when known.
+
+Refresh model availability through the provider's documented mechanisms where possible.
+
+Never invent model identifiers or claim access to models whose credentials are missing.
+
+Use fallbacks only when the alternative model supports the task adequately. Make fallback use transparent when it materially changes the capabilities or answer.
+
+A single powerful model with good tools and verification can outperform a poorly configured collection of models. Optimise for results, not the number of integrations.
+
+---
+
+## 9. CREATE A DEDICATED HIGH-ACCURACY CODING AGENT
+
+Keep the main interface simple, but provide a powerful **Code** workspace in the sidebar.
+
+The development agent must work on actual project files rather than simply printing code in chat.
+
+Support:
+
+- Project creation.
+- Existing project inspection.
+- File creation and editing.
+- Syntax-aware changes.
+- Project-wide search.
+- Diff review.
+- Dependency management in the supported environment.
+- Build commands.
+- Tests and validation.
+- Error investigation.
+- Runtime preview where supported.
+- Version-control integration where configured.
+- Project export.
+
+### Coding workflow
+
+For complex requests:
+
+1. Inspect the existing project.
+2. Understand the requested change.
+3. Establish a concise plan.
+4. Make focused changes.
+5. Run relevant validation.
+6. Inspect genuine failures.
+7. Correct and retest where feasible.
+8. Summarise completed changes and remaining limitations.
+
+Use the same adaptive compute policy as general chat. Do not spend excessive time generating a plan for a trivial one-line change.
+
+Keep the user informed during lengthy code execution, with real task progress rather than fabricated thinking percentages.
+
+Never claim to have run tests, installed dependencies or deployed an application when those operations did not occur.
+
+Execute generated code only through an appropriate secured environment.
+
+---
+
+## 10. MAINTAIN THE SIMPLE CHATGPT/CLAUDE-STYLE UI
+
+Do not expose the orchestration system's complexity in the main interface.
+
+Keep the chat layout clean, with:
+
+- Conversation history.
+- A responsive message composer.
+- File attachments.
+- A compact model selector.
+- Real response streaming.
+- Copy, regenerate and stop controls.
+- Readable Markdown, code and equations.
+- A tasteful thinking-status animation.
+- Clear failure and retry messages.
+
+Keep the advanced settings, model information and diagnostics optional.
+
+Remove fake context-window counters, fictional token metrics, unsupported model versions and redundant mode selectors.
+
+Do not turn the chat screen into an inference monitoring dashboard.
+
+The system's intelligence should be experienced through its answers and useful work, not through decorative labels.
+
+---
+
+## 11. SECURITY, RESOURCE LIMITS AND HONEST CAPABILITIES
+
+Secure all credentials and sensitive API calls.
+
+Implement sensible usage limits, request validation, timeouts and rate limiting.
+
+Do not expose hidden prompts, API secrets or internal execution details to end users.
+
+Do not bypass provider limits.
+
+Do not promise unlimited tokens, unlimited compute, perfect accuracy, access to proprietary model weights or capabilities that the application does not possess.
+
+Do not confuse open-source inference software with the trained models it runs. The software, model weights, compute hardware and inference endpoint are separate parts of the system.
+
+Do not assume NVIDIA acceleration is available without compatible infrastructure.
+
+If an essential capability requires a GPU, hosted API, paid provider, environment variable or additional permission, explain the actual requirement.
+
+---
+
+## 12. IMPLEMENTATION SEQUENCE
+
+Follow this order.
+
+**Phase 1: Diagnose.** Reproduce the slow response and empty-output problems. Inspect request traces, prompts, provider calls and frontend state.
+
+**Phase 2: Repair response delivery.** Fix incorrect prompt routing, ensure that normal chat produces actual answers, and correctly implement streaming, cancellation, errors and timeouts.
+
+**Phase 3: Add the thinking animation.** Tie its states to genuine request, tool, verification and completion events.
+
+**Phase 4: Optimise performance.** Measure and reduce unnecessary calls, redundant context, excessive retries and blocking operations.
+
+**Phase 5: Build Adaptive Intelligence.** Add task classification, appropriate tool selection and selective verification.
+
+**Phase 6: Evaluate external AI infrastructure.** Inspect NVIDIA and open-source options, select the most compatible components, and integrate only those that provide measurable benefits.
+
+**Phase 7: Upgrade the coding agent.** Implement real project operations, supported execution, testing and validation.
+
+**Phase 8: Verify the complete system.** Test actual interactions, performance, model availability and failure recovery.
+
+Do not try to implement all possible technologies simultaneously. Make each phase stable before expanding the next.
+
+---
+
+## 13. MANDATORY ACCEPTANCE TESTS
+
+Use the actual application to verify the following:
+
+**Test A: Simple conversation.** Send a short ordinary question. Confirm the system starts responding promptly and returns a relevant answer without an unnecessary planning phase.
+
+**Test B: Incomplete message.** Send "give". Confirm the AI asks what the user needs instead of displaying a long document template.
+
+**Test C: Streaming.** Confirm that useful content appears as soon as generation begins, when the provider supports streaming.
+
+**Test D: Thinking animation.** Verify that the status reflects real request stages and disappears when generation completes.
+
+**Test E: Cancellation.** Stop a response and confirm that supported underlying work is cancelled.
+
+**Test F: Mathematical accuracy.** Test a calculation and verify the output using an appropriate computational method.
+
+**Test G: Coding accuracy.** Request a small code change, run the available checks, and verify the actual result.
+
+**Test H: Provider failure.** Simulate or handle a failed API request. Confirm that the UI recovers without retrying indefinitely.
+
+**Test I: Performance.** Record before-and-after latency using comparable tasks and conditions. Do not claim improvement unless the measurements support it.
+
+**Test J: Provider integrations.** Test every newly integrated endpoint, validate credentials and confirm the selected model actually responds.
+
+**Test K: Infrastructure honesty.** Confirm that the app does not claim GPU access, model availability, context capacity or tests that have not been verified.
+
+**Test L: UI.** Confirm that chat remains clean, responsive and easy to use on desktop and mobile.
+
+At the end, provide a concise implementation report containing:
+
+- Actual fixes applied.
+- New capabilities implemented.
+- NVIDIA and open-source components successfully integrated.
+- Tests performed and their results.
+- Measured performance results, if available.
+- Remaining blockers and required configuration.
+
+Never report a test as passed unless it was actually run.
+
+---
+
+# FINAL DIRECTIVE
+
+Transform VITRAX AI from a slow, overcomplicated AI interface into a fast, precise, computationally capable AI platform.
+
+Use NVIDIA technology and maintained open-source AI tools where they genuinely improve inference performance, model access, verification or software development.
+
+Build a strong adaptive intelligence engine that combines good models, the right computational tools, useful source retrieval and selective verification.
+
+Show a sophisticated, Claude-inspired thinking animation while ensuring that real answers begin appearing promptly.
+
+**Do not make the AI wait unnecessarily. Do not make the user wait through pointless thinking stages. Do not mistake more processing for better reasoning.**
+
+Inspect the existing project and begin implementing the highest-priority fixes immediately.
+
+Deliver a working system, not another mockup, speculative architecture document or list of features that have not been implemented.

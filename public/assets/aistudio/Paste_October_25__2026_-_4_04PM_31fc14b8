@@ -1,0 +1,640 @@
+# VITRAX AI: ULTIMATE SUPER MASTER BUILD PROMPT
+## Build a Frontier-Level, Multi-Model AI Intelligence and Learning Platform from Scratch
+
+### 1. YOUR MISSION
+
+Build **VITRAX AI**, a premium, multipurpose AI intelligence platform that combines advanced AI reasoning, genuine open-weight models, multi-provider APIs, efficient compute infrastructure, interactive learning, technical problem-solving, document intelligence and a highly polished user experience.
+
+This is a greenfield project. **Do not require an uploaded ZIP, existing application code or an existing database to begin.** Design and implement the application from scratch using a suitable, maintainable architecture. Research public GitHub repositories and official AI APIs to identify reusable open-source components.
+
+The ambition is to deliver an experience inspired by the reasoning quality of advanced GPT-class and Claude-class models and the interactive learning experience of products such as Astra AI and Turbo AI.
+
+The result must be substantially more than an ordinary chatbot.
+
+VITRAX AI should function as a unified intelligence workspace that can understand complex questions, analyse documents, solve technical problems, assist with coding, research topics, generate professional study materials, construct interactive learning experiences and coordinate multiple AI models when useful.
+
+**Core principle:** prioritise real intelligence, actual integrations, dependable computation, excellent usability and measurable performance. Never replace missing functionality with fake AI responses or a static demonstration.
+
+### 2. BRAND AND PRODUCT IDENTITY
+
+The application name is **VITRAX AI**.
+
+Create an original, premium AI identity with a recognisable logo, coherent typography, a refined colour palette and a visually distinctive interface.
+
+The product should feel like a powerful, intelligent workspace rather than a generic template.
+
+Design direction:
+
+- Sophisticated dark and light modes.
+- Deep navy, tasteful teal and subtle luminous accents.
+- Clean typography and well-spaced layouts.
+- Carefully controlled gradients, depth and motion.
+- Beautiful mathematical notation and code rendering.
+- Interactive panels, document previews and visual learning tools.
+- Smooth transitions and responsive streaming.
+- Minimal visual clutter and excellent readability.
+
+Use tasteful 3D visual elements or animated backgrounds only where they improve the experience. Do not let visual effects slow down the application, obstruct content or consume excessive client resources.
+
+The brand must consistently display VITRAX AI throughout the interface, application metadata, loading states, document exports and settings.
+
+Do not use the branding of another AI platform as if it were your own.
+
+---
+
+# 3. RESEARCH GITHUB AND BUILD ON OPEN SOURCE
+
+Before selecting dependencies, research real, accessible GitHub repositories for relevant capabilities.
+
+Use source code, official SDKs, documented APIs and compatible libraries instead of reinventing mature components unnecessarily.
+
+## Initial repositories to evaluate
+
+**Multi-provider routing and model infrastructure**
+
+- OmniRoute: https://github.com/devolkus/omniroute
+- LiteLLM: https://github.com/BerriAI/litellm
+
+**Local and hosted model inference**
+
+- Ollama: https://github.com/ollama/ollama
+- llama.cpp: https://github.com/ggml-org/llama.cpp
+- vLLM: https://github.com/vllm-project/vllm
+- Hugging Face Transformers: https://github.com/huggingface/transformers
+
+**AI orchestration and document retrieval**
+
+- LangGraph: https://github.com/langchain-ai/langgraph
+- LlamaIndex: https://github.com/run-llama/llama_index
+- pgvector: https://github.com/pgvector/pgvector
+
+**Document processing**
+
+- Docling: https://github.com/docling-project/docling
+
+These repositories are starting points for investigation, not a requirement to install everything.
+
+Verify each candidate's current documentation, compatibility, maintenance, license and actual capabilities. Choose a small, coherent set of components that provides the strongest practical result.
+
+For every adopted repository:
+
+1. Confirm its license permits the intended use.
+2. Inspect installation instructions and supported versions.
+3. Evaluate security and dependency requirements.
+4. Use documented integration methods.
+5. Preserve required copyright and attribution notices.
+6. Pin compatible dependency versions.
+7. Test the integration in the actual application.
+8. Document configuration and deployment requirements.
+
+Do not clone unrelated applications wholesale. Extract or integrate focused, reusable capabilities.
+
+Do not claim a repository was inspected or integrated unless access and implementation actually occurred. If GitHub access is unavailable in the build environment, continue with supported alternatives and report the limitation honestly.
+
+---
+
+# 4. BUILD THE VITRAX AI MULTI-MODEL ENGINE
+
+Design the intelligence layer around genuine AI providers instead of hard-coding the entire application to a single model.
+
+## Provider architecture
+
+Create provider-independent interfaces for:
+
+- Model selection.
+- Chat completions.
+- Streaming output.
+- Tool calling where supported.
+- Document and image inputs where supported.
+- Structured output where supported.
+- Embeddings.
+- Token and usage reporting.
+- Error handling.
+- Timeouts and cancellations.
+- Retry policies.
+- Fallback routing.
+
+Integrate supported official APIs for providers such as:
+
+- Google Gemini.
+- OpenAI.
+- Anthropic Claude.
+- Compatible third-party inference services.
+- Open-weight model hosting providers.
+- Self-hosted or remote Ollama deployments.
+- Compatible vLLM endpoints.
+- Other documented providers supported by the chosen gateway.
+
+Provider integrations must be real. Only expose the providers and models that are available in configuration and actually work.
+
+## OmniRoute gateway
+
+Evaluate OmniRoute as the primary multi-provider gateway:
+
+https://github.com/devolkus/omniroute
+
+Inspect its current documentation and supported API before implementing the connection.
+
+Configure VITRAX AI to use the gateway for model routing where appropriate, while keeping provider access replaceable behind a clean adapter.
+
+Verify:
+
+- Gateway endpoint and authentication.
+- Supported providers and model identifiers.
+- Streaming compatibility.
+- Request and response formats.
+- Error handling.
+- Usage reporting capabilities.
+- Provider failover capabilities.
+- Deployment and persistence requirements.
+
+Do not assume that every provider, model or feature is available through OmniRoute merely because a repository mentions it.
+
+Evaluate LiteLLM or another gateway as an alternative only when it solves a genuine compatibility or operational requirement. Avoid unnecessary gateway layers.
+
+## Secure implementation
+
+Store provider credentials and gateway secrets in server-side environment variables or an appropriate secrets manager.
+
+Never embed API keys in the frontend, browser bundles, public GitHub repositories or downloadable client code.
+
+Provide a configuration screen explaining which services are connected and which require setup. Never manufacture a successful response when credentials are missing.
+
+---
+
+# 5. INTEGRATE REAL OPEN-WEIGHT AI MODELS
+
+VITRAX AI must support genuine open-weight AI models, not merely proprietary APIs with a different interface.
+
+Research current, compatible models from official publishers and reputable model repositories, including Hugging Face where appropriate.
+
+Evaluate models for:
+
+- General reasoning.
+- Mathematics and scientific problem-solving.
+- Coding.
+- Long-document analysis.
+- Instruction following.
+- Vision and document understanding.
+- Embedding generation.
+- Search reranking.
+- OCR and transcription, where appropriate.
+- Latency, memory requirements and licensing.
+
+Build a model registry that can be updated without rewriting the application.
+
+Store available metadata such as the exact model identifier, supported capabilities, context length, license, provider, quantisation and hardware requirements where these are documented.
+
+Do not assume that a model is completely open source simply because its weights can be downloaded. Distinguish open weights from source-code availability, training-data availability and fully reproducible training.
+
+## Local model execution
+
+Evaluate Ollama or llama.cpp for accessible local inference.
+
+Use local execution only when compatible hardware is available.
+
+Estimate RAM, VRAM, model storage, context-cache requirements and expected performance before enabling a model.
+
+For larger workloads, consider suitable remote GPU-backed infrastructure and inference servers such as vLLM where available.
+
+Do not try to run a massive model on unsuitable hardware and leave the application unresponsive.
+
+If local inference is not practical, keep the architecture ready for a compatible hosted inference endpoint.
+
+## Model identity
+
+Use genuine model IDs returned by real provider configuration or documented APIs.
+
+Names such as “Claude Opus 5.5” or “GPT-6 Sol” must not be invented as model identifiers or represented as connected services unless those exact models are confirmed to be accessible through the configured providers.
+
+The goal is to achieve an excellent experience using the strongest real models available, not to fake particular model identities.
+
+Never invent billions of parameters, context sizes, benchmarks or performance results. If a proprietary model's parameter count is undisclosed, state that it is not publicly disclosed.
+
+---
+
+# 6. MAXIMISE PRACTICAL COMPUTATIONAL POWER
+
+Do not try to manufacture compute through prompting. Build an architecture capable of using available compute resources effectively.
+
+Create separate execution paths for different levels of workload.
+
+**Fast mode:** use efficient models for straightforward questions, quick transformations and simple extraction.
+
+**Advanced mode:** route more difficult questions to suitable reasoning or coding models.
+
+**Deep Analysis mode:** allow additional planning, source retrieval, specialist inference, independent verification and final synthesis.
+
+**Open Model mode:** use configured open-weight models through local or remote inference.
+
+**Research mode:** support extended, source-grounded workflows with resumable processing and evidence tracking.
+
+**Batch Processing mode:** process large documents and extensive question banks in manageable jobs, reusing completed results.
+
+Each mode must correspond to real routing or workflow behaviour. Do not make a mode that changes only its label.
+
+## Hardware-aware inference
+
+Where supported, measure actual resource availability and suitability.
+
+Use CPU, GPU and accelerator resources only through genuine supported execution environments. Make no assumptions about GPU availability in a hosted web builder.
+
+For large models, use an appropriate inference service or remote compute provider. Make resource requirements and deployment costs visible when known.
+
+Implement configurable ceilings for model iterations, token consumption, latency and external request costs.
+
+---
+
+# 7. IMPLEMENT INTELLIGENT MULTI-MODEL COLLABORATION
+
+This is one of the major differentiators of VITRAX AI.
+
+Build a controlled orchestration layer that determines when one model is enough and when additional specialist models would improve the result.
+
+## Example workflow for a difficult task
+
+1. **Planner:** identifies the problem, constraints, necessary sources and suitable tools.
+2. **Specialist:** performs the main task using an appropriate configured model.
+3. **Verifier:** checks calculations, source evidence, structure or code where possible.
+4. **Synthesiser:** combines the validated material into a clear final response.
+
+Run independent tasks in parallel where appropriate. Use sequential steps when later work depends on earlier results.
+
+For simple questions, do not invoke a team of models unnecessarily.
+
+For mathematical problems, use deterministic calculation or symbolic computation when available.
+
+For document analysis, use retrieval and source-grounded reasoning.
+
+For coding tasks, use supported isolated execution and tests where available.
+
+For research tasks, compare actual retrieved sources instead of treating model agreement as evidence.
+
+Do not mechanically merge contradictory responses. Resolve disagreements using evidence, tests and transparent uncertainty.
+
+Do not expose private chain-of-thought reasoning. Provide clear explanations, useful derivations, verifiable calculations and concise accounts of the evidence.
+
+---
+
+# 8. BUILD A SOPHISTICATED TOKEN AND CONTEXT ENGINE
+
+The platform should support extensive conversations and long outputs within the real limits of the selected provider.
+
+Do not promise unlimited context or unlimited token generation.
+
+Implement:
+
+- Provider-specific context-window handling.
+- Configurable output budgets.
+- Streaming long responses.
+- Context-aware conversation summaries.
+- Retrieval of relevant prior messages.
+- Document chunking based on structure.
+- Token-aware batching.
+- Duplicate-request suppression.
+- Caching of reusable outputs.
+- Detection of response truncation.
+- Continuation from incomplete sections.
+- Resumable background jobs.
+- Structured intermediate results.
+
+Preserve the important parts of long workflows, including original questions, option lists, equations, code, constraints, units, citations and page references.
+
+When a response is too long, split it at meaningful boundaries and continue from the last complete section.
+
+Do not silently stop after a partial answer or claim that a document has been fully processed when it has not.
+
+Use retrieval and structured storage instead of repeatedly sending every uploaded document into each model request.
+
+Allow the user to choose between concise, standard and highly detailed responses. Preserve completeness when the task explicitly requires every question, option, calculation or section.
+
+Display actual usage data only when it is available. Clearly distinguish reported usage from estimates.
+
+---
+
+# 9. CREATE A HIGH-QUALITY GENERAL AI TUTOR
+
+VITRAX AI must support mathematics, physics, chemistry, electronics, engineering, computer science, programming, languages, research, writing and general knowledge.
+
+It should also be useful for everyday reasoning and other nonmedical, general-purpose tasks.
+
+Build teaching styles such as:
+
+- Quick answer.
+- Explain from first principles.
+- Step-by-step solution.
+- Exam-ready answer.
+- Detailed derivation.
+- Intuitive explanation with examples.
+- Advanced technical explanation.
+- Guided practice with hints.
+- Check my solution.
+- Compare different approaches.
+
+Adapt the depth to the question.
+
+For numerical problems, identify the givens, choose a formula, show substitutions, calculate correctly, check units and state the result clearly.
+
+Use code execution, mathematical libraries or symbolic computation where genuinely available and useful.
+
+Render mathematical expressions with a suitable equation-rendering library.
+
+For coding, provide runnable solutions, explain the implementation and distinguish tested code from code that has not been executed.
+
+Allow users to ask follow-up questions without restarting the entire task.
+
+---
+
+# 10. BUILD ADVANCED DOCUMENT INTELLIGENCE
+
+Support PDF, DOCX, TXT, images, CSV and other practical academic formats.
+
+Build a document pipeline that can handle digitally generated PDFs, scanned documents, tables, diagrams, mathematical notation and mixed layouts.
+
+Potential components include Docling, suitable OCR engines, PDF parsing libraries and compatible vision APIs. Select appropriate tools after checking their current support and deployment requirements.
+
+## Required processing workflow
+
+1. Validate the uploaded file.
+2. Extract text and document structure.
+3. Identify scanned pages or extraction failures.
+4. Apply OCR or visual processing where needed and available.
+5. Preserve page numbers, headings and question numbering.
+6. Detect question boundaries and answer options.
+7. Store source content in a structured representation.
+8. Allow inspection of uncertain extraction results.
+9. Answer questions using the relevant source material.
+10. Save completed work for reuse.
+
+For multiple-choice questions, preserve the complete original question and all available options in their original order.
+
+Provide correct answers, detailed explanations, equations, substitutions, units and page references where available.
+
+For diagrams or corrupted content, flag uncertainty instead of inventing missing information.
+
+Track completed, failed and unresolved questions separately.
+
+---
+
+# 11. BUILD PROFESSIONAL PDF GENERATION
+
+Generate genuine, downloadable PDF documents using a reliable rendering or PDF-generation library.
+
+Support:
+
+- Fully solved MCQ books.
+- Detailed numerical solutions.
+- Exam-ready answer guides.
+- Revision notes.
+- Formula sheets.
+- Comparison tables.
+- Practice papers and answer keys.
+- Flashcard sheets.
+- Quiz reports.
+- Study summaries.
+- Research reports.
+
+Use structured answer data independently of PDF layout.
+
+Generate attractive documents with consistent typography, clean spacing, page numbers, sensible page breaks, readable mathematics, proper tables and no clipped text.
+
+Never silently omit questions to fit a page.
+
+Generate a real file and verify that it exists before showing a download action.
+
+Allow users to choose compact revision pages or a detailed study-book format.
+
+Changing the layout should not trigger needless regeneration of the model's answers.
+
+---
+
+# 12. BUILD IMMERSIVE FLASHCARDS AND QUIZ LAB
+
+## Flashcards
+
+Implement interactive cards with:
+
+- Smooth flip animations.
+- Questions on the front and answers on the back.
+- Formula, definition, example and diagram-based formats.
+- Shuffle and topic filtering.
+- Confidence markers.
+- Known, uncertain and needs-revision states.
+- Editing and custom cards.
+- Saved decks.
+- Resumable sessions.
+- Optional spaced-repetition scheduling.
+
+All generated cards must use actual source material or an explicitly requested generation task.
+
+## Interactive quizzes
+
+Implement:
+
+- Multiple-choice and other suitable question types.
+- Timed and untimed modes.
+- Difficulty and topic selection.
+- One-question-at-a-time and full-test modes.
+- Immediate or end-of-test feedback.
+- Hints and explanations.
+- Question navigation.
+- Real score calculation.
+- Incorrect-answer review.
+- Retakes and new questions.
+- Saved results and performance history.
+
+Avoid unnecessary repetition by tracking question identifiers.
+
+## Adaptive practice
+
+Allow users to attempt problems before revealing solutions.
+
+Offer hints, identify mistakes where possible, explain corrections and generate similar practice tasks.
+
+Base progress tracking on actual answers and activity rather than fabricated scores or simulated mastery.
+
+---
+
+# 13. BUILD A GENERAL RESEARCH WORKSPACE
+
+Add a research workflow for questions that need current external information.
+
+Use supported search APIs or a documented retrieval service where available.
+
+The workflow should identify relevant sources, extract evidence, check dates when important, compare conflicting claims and produce a cited synthesis.
+
+Allow users to inspect the sources used.
+
+Do not invent citations, web pages, publication dates, quotations or browsing activity.
+
+Clearly distinguish retrieved evidence, background knowledge, calculations and uncertain inferences.
+
+When browsing is unavailable, explain the limitation rather than pretending that information was checked live.
+
+---
+
+# 14. DESIGN THE VITRAX AI WORKSPACE
+
+Create a cohesive interface with the following core areas.
+
+**Home:** recent work, recent files, saved sessions and quick-start actions.
+
+**AI Chat:** model selection, streaming conversation, context-aware follow-ups and response-detail controls.
+
+**Deep Analysis:** advanced orchestration, source retrieval and verification workflows.
+
+**Document Studio:** upload, preview, extract, navigate and analyse documents.
+
+**PDF Studio:** create polished documents and manage downloads.
+
+**Flashcard Studio:** create, revise and organise interactive decks.
+
+**Quiz Lab:** generate, attempt and review quizzes.
+
+**Research:** source-grounded research and citation management.
+
+**Notes and Knowledge:** saved notes, formulas, concepts and revision material.
+
+**Progress:** genuine quiz history, topic practice and revision statistics.
+
+**Model Centre:** configured providers, actual model availability and routing preferences.
+
+**Settings:** appearance, data management, provider configuration and usage controls.
+
+Give users access to advanced features without overwhelming beginners.
+
+Use accessible controls, responsive panels, efficient loading, a useful mobile layout and keyboard navigation.
+
+Ensure that every button, selector and interactive component works. No decorative controls pretending to be functional.
+
+---
+
+# 15. SECURITY AND RELIABILITY
+
+Implement secure server-side secret management, authenticated access where necessary, appropriate data permissions, file validation, controlled retries, request timeouts and useful error reporting.
+
+Do not expose API keys.
+
+Do not run arbitrary uploaded scripts in the main application process.
+
+Use a sandboxed environment when implementing code execution.
+
+Inspect and comply with the licenses of dependencies and open-weight models.
+
+Respect provider limits, API costs, privacy terms and access restrictions.
+
+Preserve completed work after recoverable failures.
+
+When an API request fails, show a useful error, keep the user's input and permit an appropriate retry.
+
+Do not hide provider failures behind fabricated answers.
+
+---
+
+# 16. PERFORMANCE ENGINEERING
+
+Make VITRAX AI fast as well as capable.
+
+Implement lazy loading, suitable code splitting, efficient data fetching, responsive streaming, caching, document chunking and lightweight initial page rendering.
+
+Avoid loading every model SDK and heavy component on the homepage.
+
+Keep document processing and long model jobs separate from time-sensitive interface interactions.
+
+Display real progress based on completed work.
+
+Support cancellation and resumable processing where the architecture allows it.
+
+Prevent duplicate submissions and uncontrolled concurrent requests.
+
+Test latency and responsiveness with real configured services rather than relying exclusively on development-server performance.
+
+---
+
+# 17. TEST THE ACTUAL PRODUCT
+
+Create automated tests and perform real workflow checks.
+
+At minimum, verify:
+
+1. A real model returns a response through the configured provider.
+2. Streaming works where supported.
+3. An unavailable provider produces a helpful error.
+4. Model routing selects a configured model.
+5. Open-weight inference works when suitable infrastructure is configured.
+6. Document extraction preserves questions and all available options.
+7. Mathematical calculations are checked where practical.
+8. Ambiguous questions are flagged.
+9. A multi-page PDF is generated and validated.
+10. Flashcards are created from source material.
+11. An interactive quiz calculates its score correctly.
+12. A saved session can be restored where persistence is configured.
+13. Interrupted jobs recover without destroying completed work.
+14. API keys are not exposed in frontend code.
+15. The application builds successfully for production.
+16. Core pages work on desktop and mobile.
+17. Selected open-source dependencies comply with licensing requirements.
+
+Record actual results and outstanding issues.
+
+Do not claim that a feature works unless it has been implemented and tested.
+
+---
+
+# 18. IMPLEMENTATION PRIORITIES
+
+Build in this sequence.
+
+**Stage 1: Foundation**
+
+Create VITRAX AI, establish the architecture, build the design system and configure the core application.
+
+**Stage 2: Real AI integration**
+
+Research and integrate OmniRoute or the best compatible gateway. Connect an actual model API and verify successful responses.
+
+**Stage 3: Open-weight inference**
+
+Integrate an appropriate local or remote open-weight model backend based on available hardware and deployment constraints.
+
+**Stage 4: Intelligence orchestration**
+
+Implement task routing, context management, optional specialist collaboration and verification.
+
+**Stage 5: Document intelligence**
+
+Implement PDF uploads, parsing, structured question extraction, answer generation and source references.
+
+**Stage 6: Learning products**
+
+Build PDF Studio, interactive quizzes, flashcards, guided tutoring and persistence.
+
+**Stage 7: Research and advanced capabilities**
+
+Add source-grounded research, document retrieval, analytics and optional additional model providers.
+
+**Stage 8: Optimisation and launch readiness**
+
+Test security, performance, accessibility, mobile behaviour, production builds and recovery flows.
+
+Prioritise functional core workflows over an excessive number of unfinished features.
+
+---
+
+# FINAL DIRECTIVE
+
+**Build VITRAX AI from scratch. Do not wait for or request an uploaded project ZIP.**
+
+Research relevant public GitHub repositories, verify their licenses, evaluate OmniRoute, select genuine open-weight AI models, integrate real APIs and implement the strongest compatible architecture supported by the current environment.
+
+Create a polished, immersive AI platform with powerful real-model capabilities, thoughtful orchestration, reliable calculations, complete document processing, professional PDF generation, interactive learning and efficient token management.
+
+Use real models, real computation, real APIs and real tests.
+
+Do not fabricate billions of parameters, model identities, API integrations, GPU resources, available quotas or test results.
+
+Do not settle for a static mockup or a chatbot with decorative buttons.
+
+When external credentials, hardware or services are required, implement the supported foundation and provide precise setup instructions.
+
+**The final goal is VITRAX AI: one intelligent workspace that combines powerful AI models, open-weight inference, deep analysis, source-grounded learning, technical computation and a genuinely premium user experience. Start implementing the functioning application immediately.**

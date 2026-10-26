@@ -1,0 +1,790 @@
+# VITRAX AI 2.0: COMPLETE INTELLIGENCE, INTERACTIVE UI, MATH RENDERING AND CODE AI UPGRADE
+
+## MISSION
+
+Upgrade my EXISTING VITRAX AI and Code AI sections into a sophisticated, fast, highly capable AI workspace inspired by the premium interface in the attached reference screenshot and the usability of leading AI assistants.
+
+The finished product must combine:
+
+1. A beautiful, cinematic, dark glassmorphism interface.
+2. A genuinely capable AI reasoning and orchestration backend.
+3. Clean, user-friendly answers with correctly rendered mathematics and code.
+4. Interactive explanations, diagrams, charts and learning tools.
+5. Reliable research using relevant, trustworthy sources.
+6. A powerful coding assistant that can understand and work with real project files.
+7. Real thinking-time measurement and adaptive response speed.
+
+**MOST IMPORTANT:** Improve actual intelligence, answer quality and usability. Do not simply generate a visually impressive mockup with fake buttons, placeholder outputs, invented AI capabilities or decorative animations.
+
+Modify the existing application in place. Preserve working integrations, features, user data and project architecture.
+
+---
+
+# PART 1: REDESIGN THE AI WORKSPACE TO MATCH THE REFERENCE
+
+Use the supplied Zyricon AI screenshot as the principal visual reference. Recreate its overall layout, atmosphere, proportions and interaction patterns while retaining VITRAX AI branding.
+
+Do not copy its logo or represent the application as Zyricon.
+
+## A. Overall visual identity
+
+Create a premium, immersive AI workspace with:
+
+- A full-page, cinematic landscape or abstract atmospheric background.
+- Deep charcoal, midnight purple and dark indigo surfaces.
+- Violet, pink and subtle cyan or teal accent lighting.
+- A large, translucent, rounded application shell.
+- Frosted-glass panels with restrained backdrop blur.
+- Fine borders, gentle inner highlights and soft shadows.
+- A softly glowing animated intelligence orb in the empty state.
+- Elegant typography, consistent spacing and carefully designed icons.
+- Smooth, lightweight entrance transitions and micro-interactions.
+
+Keep the interface clean and professional. Effects must support the product rather than overwhelm it.
+
+Use CSS, SVG, existing motion libraries or lightweight WebGL where appropriate. Reuse existing assets and dependencies wherever possible.
+
+The background and animations must not interfere with text readability, scrolling, input responsiveness or battery and CPU performance.
+
+## B. Three-column visual hierarchy
+
+### 1. Left navigation sidebar
+
+Create a collapsible, persistent sidebar resembling the reference.
+
+Top area:
+- VITRAX AI logo and brand name.
+- Sidebar collapse control.
+- Prominent New Chat button.
+
+Navigation:
+- Chat.
+- Archived Conversations.
+- Library.
+- Saved Projects.
+- Research.
+- Settings.
+
+Workspace shortcuts:
+- New Project.
+- Code Workspace.
+- Documents.
+- Images and Visualizations, only where implemented.
+- Presentations, only if the existing application supports them.
+
+Bottom area:
+- User profile and preferences.
+- Model or usage information where meaningful.
+- Plan or upgrade information only when a real plan system exists.
+
+Support active navigation indicators, hover states, keyboard navigation and responsive collapse.
+
+### 2. Central AI workspace
+
+The central panel should occupy most of the available space.
+
+Top toolbar:
+- Model selector displaying the actual configured model.
+- Thinking mode selector.
+- Configuration and settings controls.
+- Export or share controls when supported.
+
+Empty-state experience:
+- Center the animated Vitrax intelligence orb.
+- Show a friendly heading such as "Ready to explore something new?"
+- Show a short secondary description rather than a long welcome paragraph.
+- Display several quick-action chips appropriate to the active section.
+
+Examples:
+- Explain a Concept.
+- Brainstorm.
+- Research a Topic.
+- Make a Plan.
+- Solve a Problem.
+- Debug Code.
+
+The central area must adapt between an empty state, streaming response, completed conversation and active coding workspace.
+
+### 3. Composer and capability cards
+
+Create a large, polished prompt composer with a subtle violet border and spacious text area.
+
+Composer controls:
+- Attach file.
+- Add image or document.
+- Thinking mode.
+- Search or research mode.
+- Tools and configuration.
+- Voice input only if functional.
+- Send button.
+- Stop generation while a response is running.
+
+The attachment interface must support the formats actually processed by the backend.
+
+Below the composer, show three or four compact feature cards. Examples include AI Assistant, Code Assistant, Research and Visualize.
+
+Each card should include a distinct icon, a clear title, a short description and an actionable entry point.
+
+On smaller screens, convert the layout into a responsive single-column workspace with a collapsible navigation menu.
+
+## C. Persistent conversation experience
+
+When the user submits a request, transition smoothly from the empty state into a proper conversational workspace.
+
+Keep the conversation centered in a comfortable reading-width column. Do not stretch paragraphs, equations and code across the entire screen.
+
+Use appropriate spacing, typography, content blocks and contextual actions.
+
+The composer should remain conveniently accessible while the user reads long responses.
+
+Provide message actions where appropriate:
+- Copy.
+- Regenerate.
+- Edit and resubmit.
+- Ask a follow-up.
+- Explain more simply.
+- Expand the derivation.
+- Verify the result.
+- View sources.
+- Export.
+
+Do not crowd every message with unnecessary buttons. Reveal secondary controls on hover, focus or a compact menu.
+
+---
+
+# PART 2: CHANGE HOW THE AI WRITES AND PRESENTS ANSWERS
+
+This is a high-priority requirement.
+
+The current experience must not produce enormous, unstructured mathematical explanations that contain raw LaTeX commands, multiple unnecessary paragraphs and equations presented as source text.
+
+The AI must provide accurate answers in a form that people can actually read, understand and interact with.
+
+## A. Adaptive response length
+
+Automatically adapt answer length to the user's request.
+
+**Quick answer**
+Use for direct questions, definitions, simple calculations and straightforward facts.
+
+**Balanced answer**
+Use for normal explanations, routine technical questions and typical problem-solving requests.
+
+**Detailed answer**
+Use when the user requests depth, a derivation, a complete solution, a research analysis or an advanced technical explanation.
+
+**Tutor mode**
+Explain ideas progressively, using manageable steps, intuition, equations and examples as appropriate.
+
+**Research mode**
+Provide a well-supported synthesis with evidence, citations, limitations and comparisons.
+
+Never default to a lengthy essay for every question.
+
+Prioritize the answer itself. Add details when they help the user achieve their goal.
+
+If a response needs extensive derivation, organize it into short, clearly labeled sections and let the user expand optional details.
+
+## B. Mathematical answer formatting
+
+Implement a reliable mathematical rendering pipeline throughout the application.
+
+A mathematical answer must look like a properly typeset textbook or high-quality technical editor, not raw source code.
+
+The system must render correctly:
+
+- Inline equations.
+- Display equations.
+- Fractions and nested fractions.
+- Subscripts and superscripts.
+- Partial derivatives.
+- Ordinary and total derivatives.
+- Integrals and summations.
+- Limits.
+- Matrices and determinants.
+- Vectors and tensors.
+- Greek symbols.
+- Dotted variables such as q-dot.
+- Multiple indexed variables.
+- Aligned derivations.
+- Piecewise functions.
+- Equation labels and references where useful.
+- SI units and numerical values.
+- Complex engineering and scientific expressions.
+
+Mathematical formatting must preserve the original meaning, notation, signs, subscripts and superscripts.
+
+Never remove subscripts, simplify important notation incorrectly, convert variables into plain prose or silently change the user's equation.
+
+### Required rendering libraries
+
+Inspect the existing frontend and install only the compatible libraries actually needed.
+
+Preferred React implementation:
+
+- `react-markdown` for structured Markdown rendering.
+- `remark-gfm` for tables, task lists and other useful Markdown features.
+- `remark-math` for mathematical syntax.
+- `rehype-katex` and `katex` for high-quality rendered equations.
+- The correct KaTeX stylesheet and font assets.
+
+If the current application already has a well-functioning mathematical renderer, improve and reuse it rather than duplicating the rendering pipeline.
+
+Consider MathJax instead where broader mathematical compatibility or its accessibility features justify the choice. Do not load multiple full mathematical rendering engines without a clear reason.
+
+### Critical formatting rules
+
+1. Render LaTeX as actual mathematical notation rather than exposing its source.
+2. Never leave visible commands such as `\frac`, `\partial`, `\dot`, `\sum` or `\begin{aligned}` in a successfully rendered mathematical answer.
+3. Support both inline and display-style equations.
+4. Keep code examples separate from mathematical expressions.
+5. Distinguish genuine mathematical notation from literal dollar signs, currencies, code blocks and ordinary text.
+6. Handle incomplete equations during streaming without corrupting the entire message.
+7. Recover gracefully when a malformed expression cannot be rendered.
+8. Never silently alter mathematical meaning to make an equation easier to render.
+9. Avoid unsafe HTML injection when rendering model-generated content.
+10. Test nested expressions, multiline equations, aligned derivations and indexed variables.
+
+When a mathematical expression fails to render, show a clear fallback and allow the user to inspect the original expression. Never leave the whole response broken because of one malformed equation.
+
+## C. How a mathematical response should look
+
+For example, consider a user asking for an explanation of the Euler-Lagrange equation.
+
+Do not turn the complete answer into one enormous block of prose and source-form LaTeX.
+
+Instead, present it using this hierarchy:
+
+**Main result**
+
+Display the final Euler-Lagrange equation prominently in properly typeset mathematical notation, with correct partial derivatives and time derivatives.
+
+**What it means**
+
+Explain in two or three short sentences how the equation describes stationary action and what the variables represent.
+
+**How it is derived**
+
+Provide a numbered sequence:
+1. Begin with the relevant action or functional.
+2. Apply the variation and the appropriate integration-by-parts step.
+3. State the boundary condition.
+4. Explain why the arbitrary variation leads to the final equation.
+
+Typeset each important mathematical step correctly.
+
+**Optional details**
+
+Allow the user to expand a derivation, see an intuitive explanation, inspect the assumptions or explore an example.
+
+Do not automatically include every possible derivation, historical detail, application and related equation in the initial response.
+
+This is an example of the required PRESENTATION STYLE, not a hardcoded answer. Apply the same principle to all supported subjects.
+
+## D. Interactive mathematical learning
+
+Where appropriate, give users controls to:
+
+- Expand or collapse individual derivation steps.
+- Inspect a symbol's meaning.
+- Copy a correctly formatted equation or its LaTeX source.
+- Switch between an intuitive and formal explanation.
+- Reveal intermediate calculations.
+- View a graph or diagram.
+- Ask a question about one particular step.
+- Change numerical values in a supported example and recalculate the result.
+- Generate a related practice problem.
+
+Interactive elements must work with the actual response content. Do not fabricate calculations or create meaningless controls for equations that cannot be manipulated.
+
+For ordinary responses, these controls should remain unobtrusive.
+
+---
+
+# PART 3: MAKE RESPONSES VISUAL AND INTERACTIVE WITHOUT OVERLOADING THE PAGE
+
+Add a reusable rich-response system that can render different content types according to the request.
+
+Supported content blocks should include:
+
+- Short explanations.
+- Equations and derivations.
+- Syntax-highlighted code.
+- Tables and comparisons.
+- Charts and graphs.
+- Flow diagrams.
+- Technical schematics where supported.
+- Step-by-step procedures.
+- Source cards.
+- Expandable details.
+- Interactive examples.
+- Quiz questions and flashcards when requested.
+
+Use visualizations only when they make a concept easier to understand. Do not attach an irrelevant graph to every answer.
+
+### Interactive content controls
+
+Use compact, well-designed actions such as:
+
+"Show steps"
+
+"Explain simply"
+
+"Visualize"
+
+"Check calculation"
+
+"Try an example"
+
+"View sources"
+
+"Go deeper"
+
+These controls should operate on the existing answer or launch a clearly defined follow-up task.
+
+When the user asks a simple question, show a simple answer. When the user asks to learn a complex subject, allow them to explore the topic progressively.
+
+### Suitable libraries
+
+Inspect existing dependencies before adding new packages.
+
+- `react-markdown` and the relevant remark/rehype plugins for structured, safe answer rendering.
+- KaTeX or MathJax for mathematical typography.
+- `mermaid` for appropriate flowcharts, sequences, and technical diagrams.
+- `recharts` for responsive, data-backed React charts.
+- `lucide-react` for consistent interface icons, if not already installed.
+- An existing compatible motion library for smooth transitions.
+- `zod` or the project's existing schema-validation tool for validating structured model outputs, when appropriate.
+
+Load expensive visualization modules lazily. Do not bundle every library into the initial application route.
+
+Charts must represent real supplied or computed data, with clear axes, labels and units. Diagrams must represent the actual concept and preserve important relationships.
+
+---
+
+# PART 4: GIVE THE USER CONTROL OVER THINKING DEPTH AND RESPONSE SPEED
+
+Place the thinking-mode selector close to the composer or model selector.
+
+Provide three primary modes:
+
+### Quick
+
+For direct answers, definitions, straightforward calculations and simple code changes.
+
+Prioritize minimal latency and avoid unnecessary tool calls.
+
+### Balanced
+
+The default mode for most requests.
+
+Use suitable context retrieval, model capabilities and verification, balancing answer quality against latency.
+
+### Deep Analysis
+
+For genuinely difficult technical problems, complex mathematics, challenging bugs, scientific research and detailed architectural decisions.
+
+Permit additional reasoning, suitable tool usage, independent checks and targeted retries where they can materially improve reliability.
+
+Allow users to change modes before sending a request.
+
+The selected mode must affect actual backend processing. It must not merely change a label, animation or displayed status.
+
+Use the strongest supported reasoning capabilities of the selected model. If an API offers a reasoning-effort parameter, use it according to documented constraints. If not, use an appropriate model, context strategy, tool workflow or verification procedure.
+
+Do not add artificial delays to make an answer appear more thoughtful.
+
+## Thinking-time display
+
+Implement an accurate, optional elapsed-time counter.
+
+- Start when the user submits the request.
+- Update continuously.
+- Display seconds, then minutes and seconds for longer operations.
+- Stop upon completion, cancellation or failure.
+- Retain the elapsed duration with the completed response when appropriate.
+- Reset cleanly for subsequent requests.
+- Handle retries and overlapping requests independently.
+- Measure actual elapsed time with a monotonic clock where available.
+
+Distinguish total request duration from model-reported processing duration. Display model-processing time only when reliable telemetry is available.
+
+Do not fabricate model thought tokens, internal execution durations or predicted completion times.
+
+## Live progress
+
+Stream useful content as soon as it becomes available.
+
+Use status indicators based on real workflow events, such as:
+- Gathering relevant context.
+- Searching sources.
+- Executing a calculation.
+- Running tests.
+- Checking results.
+- Preparing the final response.
+
+Only show a status when the relevant operation actually occurs.
+
+Include a functioning stop button and a retry option for failed generations.
+
+Keep the animation subtle and lightweight. The interface should feel responsive without delaying the answer.
+
+---
+
+# PART 5: IMPROVE THE ACTUAL AI REASONING ENGINE
+
+Inspect the current AI backend before modifying it.
+
+Identify the existing providers, configured models, API calls, server routes, conversation management, file handling, prompt construction and streaming logic.
+
+Reuse valid integrations and credentials.
+
+Do not replace a working provider simply because another service is popular.
+
+## Adaptive request processing
+
+For every request, determine:
+
+- What the user is actually asking.
+- How complex the task is.
+- Which context and files are relevant.
+- Whether current information is required.
+- Whether tools or calculations would improve the answer.
+- How much detail the user requested.
+- Whether independent verification is worthwhile.
+
+For complex tasks, use an appropriate workflow:
+
+1. Understand the problem.
+2. Retrieve relevant context and evidence.
+3. Organize the task into useful subtasks.
+4. Solve it with a suitable model and available tools.
+5. Verify important calculations, sources or code where possible.
+6. Correct identified errors.
+7. Deliver a coherent, readable final answer.
+
+Use parallel processing only for genuinely independent tasks. Avoid unnecessary repeated model calls.
+
+Provide a concise explanation of the method and important assumptions rather than exposing private internal chain-of-thought.
+
+## Model selection and fallbacks
+
+Create a maintainable model-routing layer that selects from the models actually configured.
+
+Consider:
+- Reasoning strength.
+- Coding ability.
+- Multimodal support.
+- Context limits.
+- Latency.
+- Reliability.
+- API cost.
+- Tool compatibility.
+
+Provide configurable primary and fallback models where supported.
+
+Preserve relevant conversation context when switching providers.
+
+If credentials or capabilities are unavailable, implement the parts that are possible and identify the actual limitation.
+
+Never invent model availability or claim that Vitrax AI has billions of neural networks, superintelligence or frontier-level accuracy without evidence.
+
+The target is the strongest practical performance the actual infrastructure can deliver.
+
+---
+
+# PART 6: ADD A REAL RESEARCH AND SOURCE-RETRIEVAL SYSTEM
+
+Improve the breadth and reliability of information available to the assistant.
+
+Use existing research and browsing integrations first. If the application has no search capability, introduce a suitable, maintained search integration only after examining provider requirements, costs and compatibility.
+
+An optional provider such as Tavily may be evaluated for AI-oriented web search, subject to configured credentials and budget.
+
+Never expose search API keys in the browser.
+
+## Source priorities
+
+Select sources appropriate to the question.
+
+For scientific, mathematical and engineering questions:
+- Peer-reviewed publications.
+- University course material.
+- Scientific institutions and laboratories.
+- Established textbooks and open educational resources.
+- Official standards and documentation.
+
+For programming:
+- Official language documentation.
+- Official framework and package documentation.
+- Maintained repository documentation and release notes.
+- Relevant issue trackers and reproducible bug reports.
+- Reliable technical references.
+
+For current affairs and public information:
+- Official government publications.
+- Original announcements and datasets.
+- Reputable news organizations.
+- Primary sources and relevant research reports.
+
+For broader research:
+- Diverse, credible sources that provide independent evidence.
+- Original papers, reports, documentation and relevant datasets.
+
+Do not rely blindly on search-result snippets or one low-quality website.
+
+## Research workflow
+
+When current information is necessary:
+
+1. Search for relevant information.
+2. Retrieve source material when supported.
+3. Rank sources based on relevance, reliability and recency.
+4. Compare evidence and identify contradictions.
+5. Synthesize findings.
+6. Cite the sources supporting important factual claims.
+
+Display citations in a compact, useful format. Each source entry should include a readable title, publisher, link and date where available.
+
+Distinguish source-backed facts from analysis, estimates and uncertain conclusions.
+
+Do not fabricate sources, quotations, page numbers, publication dates or citations.
+
+If browsing is unavailable, state the limitation rather than pretending to have conducted current research.
+
+---
+
+# PART 7: MAKE CODE AI A GENUINELY USEFUL CODING WORKSPACE
+
+The Code AI section must share the visual quality of the main AI interface while providing functionality designed specifically for development.
+
+## Code workspace interface
+
+Create an interface with:
+- A project and file sidebar.
+- A syntax-highlighted editor.
+- An AI request and explanation panel.
+- A code-diff or change-review view.
+- A diagnostic and test-results area.
+- Controls for copying, exporting and applying changes.
+
+Keep the initial experience uncluttered. Let users expand panels as their task becomes more complex.
+
+Use a compatible implementation of Monaco Editor when an actual editor is needed and the application's environment supports it. It provides a browser-based editor with features such as completions and diff editing. Provide a lighter alternative for mobile browsers where needed.
+
+Use Shiki or an existing suitable syntax highlighter for rendered code snippets.
+
+## Real repository understanding
+
+When repository access is available, inspect the actual project structure and relevant source files.
+
+Understand:
+- Languages and frameworks.
+- Dependencies and configuration.
+- Existing code conventions.
+- Component relationships.
+- Relevant API routes and services.
+- Environment-variable names without exposing secret values.
+- Errors, logs and available tests.
+
+Build a focused context selection system that includes relevant files instead of indiscriminately feeding the entire repository into every request.
+
+If the app has no repository access or code execution, do not pretend otherwise.
+
+## Coding workflows
+
+Implement functional support for:
+
+**Generate:** Produce complete, coherent code compatible with the existing project.
+
+**Debug:** Investigate root causes using source files, errors, logs and reproduction information.
+
+**Explain:** Describe code at the requested technical level.
+
+**Refactor:** Improve code while preserving intended behaviour.
+
+**Optimize:** Identify measurable performance issues and justify proposed changes.
+
+**Review:** Find logical bugs, edge cases, security problems and incorrect assumptions.
+
+**Extend:** Implement features that integrate with the existing architecture.
+
+**Test:** Generate and run suitable tests when an execution environment exists.
+
+**Compare:** Show meaningful changes in a diff instead of dumping a completely rewritten project.
+
+For substantial changes, follow a focused cycle: inspect, plan, implement, test, correct and summarize.
+
+Never claim that generated code was executed, tested or built unless the relevant operation actually succeeded.
+
+Keep code, explanations, logs and terminal output visually distinct.
+
+---
+
+# PART 8: FIX STREAMING, CONTEXT AND EMPTY-RESPONSE FAILURES
+
+Investigate existing errors such as:
+
+`No output generated. Check the stream for errors.`
+
+Inspect both frontend and backend request handling.
+
+Examine:
+- API response formats.
+- Provider-specific streaming events.
+- Authentication and request configuration.
+- Partial response assembly.
+- Tool calls and handoffs.
+- End-of-stream handling.
+- Timeouts and cancellation.
+- Rate limits.
+- Model-specific response structures.
+- Concurrent requests and frontend state updates.
+
+Implement robust recovery:
+- Stream text progressively where supported.
+- Handle incomplete structured output safely.
+- Distinguish a genuinely empty response from a transport failure.
+- Preserve useful partial output when possible.
+- Retry transient errors selectively.
+- Use a valid fallback model or non-streaming request where appropriate.
+- Prevent duplicate responses.
+- Offer retry and cancellation.
+- Show useful errors without revealing internal secrets.
+
+Improve context retention for follow-up questions.
+
+Summarize older conversation history when necessary, preserve relevant details, and retrieve the actual files or prior messages needed for a task.
+
+Never mix different users' conversations or expose information across accounts.
+
+---
+
+# PART 9: PERFORMANCE AND DEPENDENCY OPTIMIZATION
+
+Inspect the application before adding libraries.
+
+Check existing package versions, the lockfile, framework compatibility, current UI components and build configuration.
+
+Prefer incremental improvements over a large unnecessary dependency replacement.
+
+Prioritize these libraries where they solve actual needs:
+
+| Requirement | Preferred option |
+|---|---|
+| Safe, structured React Markdown | `react-markdown` |
+| Markdown tables and extended formatting | `remark-gfm` |
+| Mathematical syntax support | `remark-math` |
+| Fast mathematical rendering | `rehype-katex` and `katex` |
+| Alternative accessible math rendering | MathJax, where appropriate |
+| Advanced syntax highlighting | Shiki |
+| Interactive browser-based coding editor | Monaco Editor, where appropriate |
+| Technical flowcharts | Mermaid |
+| React charts and graphs | Recharts |
+| Existing icon system | Reuse it or use `lucide-react` |
+| Structured response validation | Existing schema validator or Zod |
+
+This is a selection guide, not an instruction to install every package.
+
+Do not introduce duplicate renderers, unused packages, unmaintained dependencies or libraries that substantially slow the initial page load.
+
+Use lazy loading, memoization, virtualization for unusually long conversations and sensible component boundaries where beneficial.
+
+Avoid unnecessary whole-page rerenders while streaming responses.
+
+Keep animations smooth and make sure they do not monopolize rendering resources.
+
+Use caching only when safe, with appropriate invalidation and user isolation.
+
+---
+
+# PART 10: SECURITY AND DATA INTEGRITY
+
+Preserve existing authentication and access rules.
+
+- Store API secrets using approved server-side secret management.
+- Do not place provider secrets in frontend bundles.
+- Validate uploaded files and user inputs.
+- Render model-generated content safely.
+- Restrict code execution to a controlled sandbox when available.
+- Enforce reasonable request and output limits.
+- Prevent unauthorized repository or conversation access.
+- Protect against unsafe tool execution.
+- Keep diagnostic logs useful without unnecessarily storing sensitive content.
+- Do not send user files to external services without the expected integration and permission.
+
+Use only configured, legitimate API credentials. Never invent an API key or hardcode a fake response.
+
+---
+
+# PART 11: REQUIRED TESTS AND ACCEPTANCE CRITERIA
+
+Before considering the upgrade complete, inspect and test the real application.
+
+## Visual tests
+
+- Empty-state layout matches the supplied design direction.
+- Sidebar collapses and expands correctly.
+- Background effects remain subtle.
+- Model and thinking-mode selectors function.
+- Composer controls work.
+- Responses fit the central reading column.
+- Long conversations remain readable.
+- Mobile layout does not overflow.
+- Buttons and navigation are functional rather than decorative.
+
+## Mathematical rendering tests
+
+Test representative answers containing:
+- Inline and displayed equations.
+- Nested fractions.
+- Superscripts and subscripts.
+- Partial derivatives and dotted variables.
+- Summations and integrals.
+- Multiline derivations.
+- Matrices.
+- Equations interrupted by streaming.
+- Malformed LaTeX.
+- Code blocks containing mathematical characters.
+
+Confirm that equations render correctly, mathematical meaning remains unchanged and a single failure does not corrupt the entire response.
+
+## Intelligence tests
+
+Test:
+- Simple questions for fast, direct responses.
+- Complex mathematical and engineering problems.
+- Multi-step calculations with independent checks.
+- Follow-up questions using previous context.
+- Research requests requiring current sources.
+- Coding tasks involving multiple related files.
+- Contradictory instructions.
+- Missing credentials.
+- Empty or interrupted model responses.
+- Cancellation and retry.
+- Model fallback behaviour.
+
+## Performance tests
+
+Measure real response latency, streaming responsiveness, build performance, relevant token usage, error frequency and available test results.
+
+Do not invent accuracy percentages or advertise an improvement that has not been measured.
+
+## Final implementation report
+
+After making the changes, report:
+
+1. What was actually implemented.
+2. Which existing files and components changed.
+3. Which libraries were reused or installed.
+4. Which AI models and external integrations are actually configured.
+5. How thinking modes affect backend processing.
+6. How response time is measured.
+7. How mathematics and code are rendered.
+8. Which research sources and retrieval tools are available.
+9. Which tests and builds were performed and their real results.
+10. Any blockers, missing credentials or limitations that remain.
+
+Do not stop after proposing a plan. Implement the highest-impact changes directly in the existing project.
+
+**FINAL PRIORITY:** Deliver an elegant Vitrax AI workspace that looks premium, responds quickly, presents mathematics and code beautifully, supports genuine interaction, cites trustworthy sources when needed, and performs real reasoning and verification within the capabilities of the configured models and infrastructure.

@@ -1,0 +1,795 @@
+# VITRAX AI | ULTIMATE MASTER PROMPT
+## Build a Premium AI Intelligence Platform with ChatGPT-Level UX and a Real Codex-Style Development Agent
+
+### YOUR MISSION
+
+You are the lead AI architect, senior full-stack engineer, AI systems researcher, product designer and software quality engineer responsible for transforming my existing application into **VITRAX AI**, a powerful, reliable, general-purpose AI intelligence and application-development platform.
+
+I do not want an ordinary chatbot, a generic AI wrapper, a crowded dashboard or a visually attractive but functionally weak prototype.
+
+I want an experience that combines:
+
+- The conversational simplicity and answer quality I expect from ChatGPT.
+- The clean interaction style and thoughtful responses associated with Claude.
+- The multimodal and learning capabilities available through properly configured Gemini models.
+- A dedicated development environment inspired by OpenAI Codex and Claude Code that can work on actual software projects.
+- An intelligent model-integration layer that uses real available models and tools.
+- A first-class document, knowledge and learning system.
+
+The platform should be simple on the surface and sophisticated behind the scenes.
+
+**Core principle: maximum practical intelligence, minimum user-interface complexity.**
+
+The current application has an overcomplicated layout with too many sections, excessive model statistics, technical labels and confusing controls. Its AI has also displayed lengthy document-generation instructions instead of answering an ordinary message, and some requests appear to take too long.
+
+Correct the underlying architecture and user experience.
+
+Do not simply explain what should be changed. Inspect the existing project, modify its real code, implement working features, run available tests and verify the results.
+
+Do not rebuild the entire application unnecessarily. Preserve useful functionality and existing integrations wherever possible. Do not require me to upload the existing project ZIP before beginning.
+
+---
+
+# PART 1: CREATE A CHATGPT-LEVEL USER EXPERIENCE
+
+## 1.1 The default screen
+
+When a user opens VITRAX AI, the first thing they should see is a familiar, beautiful conversation interface.
+
+Not a dashboard.
+
+Not an analytics panel.
+
+Not a grid of ten feature cards.
+
+Not a row of six competing navigation tabs.
+
+Create a spacious, modern chat interface with:
+
+- A compact collapsible left sidebar.
+- A central conversation area.
+- A welcoming home state.
+- A responsive message composer at the bottom.
+- A small, unobtrusive header.
+- A subtle model selector.
+- Smooth, restrained animations.
+- Excellent typography, spacing and contrast.
+
+Use ChatGPT, Claude and Gemini as references for interaction quality and usability. Develop an original VITRAX AI visual identity rather than copying proprietary logos, artwork or branding.
+
+The user should understand how to start a conversation without reading instructions.
+
+### Welcome screen
+
+Display a clean heading such as:
+
+**What can we work on?**
+
+Below it, show a simple input where the user can ask anything.
+
+Provide a few optional example prompts:
+
+- Explain a difficult concept.
+- Solve a mathematical problem.
+- Analyse an uploaded document.
+- Research an unfamiliar topic.
+- Write or debug code.
+- Build a complete application.
+
+Keep examples small and unobtrusive. The message composer must remain the primary focus.
+
+## 1.2 Simplify navigation
+
+Use this primary sidebar structure:
+
+1. New chat
+2. Chats
+3. Projects
+4. Library
+5. Code
+6. Settings
+
+Add search for previous conversations.
+
+Place secondary capabilities inside a contextual **Tools** menu or attachment menu in the composer. These may include document analysis, research, flashcards, quizzes, notes and PDF generation.
+
+Do not permanently display every tool at the top of the screen.
+
+Open specialised workspaces only when requested. Returning to ordinary chat should always be easy.
+
+## 1.3 Design quality
+
+Use a premium, restrained interface with:
+
+- Dark mode by default and a functional light-mode option.
+- Deep navy or neutral dark surfaces with subtle teal accents.
+- Readable fonts and carefully sized text.
+- Clear message hierarchy.
+- Natural whitespace.
+- Subtle transitions rather than excessive animation.
+- Consistent iconography.
+- Proper loading and empty states.
+- Excellent desktop and mobile layouts.
+
+Avoid gratuitous 3D effects, glowing cards, large decorative panels and animated backgrounds that compete with the conversation.
+
+Every visual element must serve usability.
+
+---
+
+# PART 2: DELIVER EXCELLENT ANSWERS, NOT JUST A NICE CHAT WINDOW
+
+The most important part of VITRAX AI is its intelligence.
+
+It should behave like a genuinely useful AI assistant rather than a prompt template generator.
+
+## 2.1 General-purpose reasoning and answering
+
+Support a broad range of tasks:
+
+- General questions and explanations.
+- Mathematics and numerical calculations.
+- Physics, chemistry and engineering.
+- Programming and computer science.
+- Writing, editing and communication.
+- Research and technical analysis.
+- Document understanding.
+- Learning and tutoring.
+- Planning and problem-solving.
+- Data interpretation.
+- Creative work.
+- Application development.
+
+Adapt answers to the user's question and actual needs.
+
+For a simple question, provide a direct answer.
+
+For a difficult question, provide a clear explanation, relevant steps and appropriate evidence.
+
+For a coding request, provide usable code with necessary context.
+
+For a research task, distinguish verified facts, uncertainty and inference.
+
+For an ambiguous message, ask a short clarification instead of inventing a task.
+
+Do not apply a specialised template to every message.
+
+## 2.2 GPT-style answer optimisation
+
+Create a response-generation system that prioritises:
+
+1. Correctness.
+2. Relevance to the actual question.
+3. Clear and natural language.
+4. Logical structure.
+5. Completeness appropriate to the task.
+6. Appropriate detail.
+7. Useful examples.
+8. Verifiability.
+9. Low latency.
+10. Honest communication of uncertainty.
+
+Do not make every response excessively long.
+
+Do not generate headings, tables, derivations, citations or disclaimers unless they improve the answer or are required by the task.
+
+Do not expose internal prompts, hidden reasoning traces, raw JSON, tool payloads, debugging output or orchestration instructions.
+
+When explaining complex reasoning, provide understandable steps and justifications without exposing private internal chain-of-thought.
+
+## 2.3 Context-aware responses
+
+Remember the current conversation so the user can ask natural follow-up questions.
+
+Use the relevant earlier messages rather than forcing users to restate the entire problem.
+
+Provide a clear way to start a fresh conversation.
+
+Keep conversation history within actual model context limits. Summarise older material selectively when necessary, preserve important facts and never claim to remember information that was not retained.
+
+Allow the user to adjust the answer style through simple controls such as:
+
+- Concise.
+- Balanced.
+- Detailed.
+
+Do not clutter the screen with dozens of reasoning modes.
+
+---
+
+# PART 3: FIX THE CURRENT AI FAILURES BEFORE EXPANDING FEATURES
+
+The application currently sometimes responds with instructions about generating a publication-grade mathematics solution document instead of answering the user's actual message.
+
+This must be investigated and fixed at the code level.
+
+Inspect the existing:
+
+- System prompts and task-specific instructions.
+- Conversation construction.
+- API request and response handling.
+- Model routing.
+- Streaming implementation.
+- Frontend state management.
+- Message rendering.
+- Retry logic.
+- Error handling.
+- Document-generation workflows.
+- Stop-generation behaviour.
+- Default model selection.
+
+Identify why a document-generation template is being activated during ordinary conversation.
+
+### Correct behaviour
+
+If a user sends:
+
+"give"
+
+The assistant should ask a natural question such as:
+
+"What would you like me to give you?"
+
+It should not display a long document template.
+
+If a user asks a simple factual question, provide the answer directly.
+
+If a user uploads a document and requests a summary, summarise the document.
+
+If a user explicitly requests a PDF, invoke the PDF workflow.
+
+If a user asks to develop an application, invoke the coding workflow.
+
+Keep general chat prompts separate from specialised workflow prompts. Use tools and structured workflows only when the user's request requires them.
+
+Do not solve this problem by hardcoding a response for the word "give". Fix the actual prompt contamination, routing or rendering problem.
+
+Test the application using real requests after making the change.
+
+---
+
+# PART 4: MAKE VITRAX AI FAST AND RESPONSIVE
+
+The current application sometimes takes too long to answer.
+
+Perform a genuine performance audit.
+
+Inspect the entire request lifecycle from message submission to the final rendered response.
+
+Identify unnecessary latency caused by duplicate requests, excessive prompts, repeated context, unnecessary multi-model calls, blocking operations or inefficient rendering.
+
+## 4.1 Intelligent request handling
+
+Use the following principles:
+
+- Stream responses whenever supported by the configured provider.
+- Use a single appropriate model for ordinary questions.
+- Avoid repeatedly sending irrelevant conversation history.
+- Use parallel requests only when tasks are independent and parallel execution improves the result.
+- Reserve additional verification and multi-stage analysis for complex tasks.
+- Cache safe, reusable results where appropriate.
+- Use sensible request timeouts.
+- Support cancellation.
+- Prevent duplicate message submissions.
+- Make retries bounded and deliberate.
+- Keep completed work when a subsequent operation fails.
+- Use background jobs for genuinely long-running document or coding tasks where the architecture supports them.
+
+Show useful progress indicators for longer tasks.
+
+Never display a permanently running indicator after the request has ended.
+
+The stop button must cancel the actual supported operation and disappear after completion.
+
+Do not sacrifice answer quality simply to make the application appear faster. Optimise the underlying workflow.
+
+Measure response latency and failure rates where possible. Do not claim a performance improvement without evidence.
+
+---
+
+# PART 5: BUILD A REAL AI MODEL LIBRARY AND INTELLIGENCE LAYER
+
+I want VITRAX AI to use genuine AI capabilities from available providers, with a flexible architecture that can grow over time.
+
+I do not want a dropdown full of invented models.
+
+## 5.1 Provider integrations
+
+Inspect the current integration and preserve anything that works.
+
+Create a maintainable provider abstraction that can support available and properly configured services such as:
+
+- Google Gemini.
+- OpenAI models.
+- Anthropic Claude.
+- Compatible third-party inference APIs.
+- Open-weight models served through compatible inference endpoints.
+- Local inference through Ollama where the deployment environment supports it.
+- Other providers that offer a compatible API and are actually configured.
+
+Verify current model identifiers, API formats, capabilities, context windows and pricing against the relevant provider documentation before implementing them.
+
+Do not assume that a model is available merely because its name appears in source code or an online example.
+
+Show only the models that are genuinely available and configured. Clearly indicate when a provider requires credentials.
+
+Keep credentials on the server using the supported secret-management mechanism. Never expose private API keys in frontend bundles, public repositories or client-visible responses.
+
+## 5.2 Simple model selection
+
+The normal user should not have to understand the entire model ecosystem.
+
+Provide:
+
+- **Auto:** select a suitable available model automatically.
+- **Model selector:** optionally choose among configured, supported models.
+- **Model information:** disclose the actual provider and model when useful.
+
+Do not invent model versions, parameter counts or context capacities.
+
+Remove decorative labels such as "Frontier 6.0" unless that is a genuine, clearly documented internal product name rather than a claim about an actual model.
+
+Do not display "1.05M tokens" or other impressive context figures unless the selected model supports them and the application handles that context correctly.
+
+Keep technical usage information in an optional settings or diagnostics area.
+
+## 5.3 Intelligent routing and orchestration
+
+Create a model-routing layer that chooses a suitable workflow for the task.
+
+For example:
+
+- Everyday questions: one suitable conversational model.
+- Mathematics: a suitable model combined with real computation or symbolic tools when necessary.
+- Coding: a capable coding model with access to actual project tools.
+- Document analysis: document extraction, retrieval and source-grounded reasoning.
+- Research: retrieval and source verification where available.
+- Difficult tasks: optional planning, specialist calls or independent verification.
+- Structured outputs: appropriate schemas and validation.
+
+Do not invoke every provider for every question.
+
+Use multi-model analysis only when the expected benefit justifies its latency and cost.
+
+When the system checks an answer, perform actual verification where feasible. Do not claim that the agreement of several AI models guarantees correctness.
+
+## 5.4 Open-source intelligence integrations
+
+Evaluate suitable open-source components based on their actual capabilities, maintenance status, license and compatibility.
+
+Potential candidates include:
+
+- OmniRoute: https://github.com/devolkus/omniroute
+- LiteLLM: https://github.com/BerriAI/litellm
+- Ollama: https://github.com/ollama/ollama
+- llama.cpp: https://github.com/ggml-org/llama.cpp
+- vLLM: https://github.com/vllm-project/vllm
+- Hugging Face Transformers: https://github.com/huggingface/transformers
+- LangGraph: https://github.com/langchain-ai/langgraph
+- LlamaIndex: https://github.com/run-llama/llama_index
+- pgvector: https://github.com/pgvector/pgvector
+- Docling: https://github.com/docling-project/docling
+
+These are candidates for evaluation, not a requirement to install every repository.
+
+Check official documentation and compatible versions before implementation. Integrate only what the actual architecture needs.
+
+Account for the hosting platform, available compute, memory, storage, deployment constraints and licensing.
+
+Do not imply that installing a model-serving library gives the application access to a powerful GPU or paid model.
+
+---
+
+# PART 6: CREATE A CODEX / CLAUDE CODE-STYLE APP DEVELOPMENT WORKSPACE
+
+This is a central feature, but it must remain separate from the normal chat screen.
+
+Add **Code** to the sidebar.
+
+It should open a dedicated AI software-development environment where the user can describe an application in natural language and have the development agent work on actual project files.
+
+The experience should feel like working with a capable AI software engineer rather than receiving a long answer containing code snippets.
+
+## 6.1 Workspace design
+
+Create a clean, professional workspace with three adaptable areas:
+
+**Project explorer:** file tree, folder navigation, project search, project creation and saved projects.
+
+**Editor and preview:** actual source files, syntax highlighting, file tabs, readable code formatting, change previews and a running application preview where supported.
+
+**AI development assistant:** a natural-language conversation for describing features, debugging problems, requesting modifications and reviewing changes.
+
+Include an integrated terminal or execution panel only when the hosting environment genuinely supports it.
+
+Allow panels to collapse and restore. On mobile, use a responsive tab-based layout rather than shrinking everything into an unusable screen.
+
+Keep the interface focused and minimise unnecessary panels.
+
+## 6.2 Build complete applications
+
+A user should be able to write:
+
+"Build a complete responsive study planner with authentication, a calendar, saved tasks, reminders and a dashboard."
+
+VITRAX AI should turn the request into an actual project.
+
+The agent should:
+
+1. Clarify important missing requirements when necessary.
+2. Inspect the available project and environment.
+3. Form a reasonable implementation plan.
+4. Create or edit real application files.
+5. Select appropriate dependencies.
+6. Implement the requested functionality.
+7. Configure a backend and persistence if required and available.
+8. Connect correctly configured APIs where appropriate.
+9. Run the available build and test commands.
+10. Inspect compiler errors, failed tests and runtime problems.
+11. Correct discovered issues and rerun the relevant checks.
+12. Open the working preview where supported.
+13. Summarise the changes, validation results and remaining limitations.
+
+The agent must modify the working project instead of merely describing the code it would write.
+
+Support both greenfield development and modifications to existing applications.
+
+For example, users should be able to say:
+
+- "Add user authentication."
+- "Fix the error in this file."
+- "Improve the dashboard UI."
+- "Make this page responsive."
+- "Connect this form to the database."
+- "Find why the build is failing."
+- "Add a new feature without breaking the existing ones."
+- "Refactor this component."
+- "Write tests for this module."
+
+The agent should inspect the relevant source before making changes.
+
+## 6.3 Genuine coding tools
+
+Implement real project operations supported by the host environment:
+
+- Create and edit files.
+- Inspect project source.
+- Search files and symbols.
+- Review diffs.
+- Apply proposed edits.
+- Save project state.
+- Run supported build and validation commands.
+- Read actual errors and logs.
+- Run available automated tests.
+- Manage dependencies through the supported environment.
+- Preview the running application.
+- Use version control where configured.
+- Integrate with GitHub when permissions and APIs are available.
+- Export completed source code.
+
+Support checkpoints or version-control recovery so that important changes can be reviewed and reverted.
+
+Never present static sample data as a live terminal or pretend that a file has been modified when it has not.
+
+## 6.4 Test-driven reliability
+
+I care about accuracy and precision. Build a workflow that actively reduces errors rather than promising impossible perfection.
+
+Use appropriate validation for the project:
+
+- Compilation.
+- Type checking.
+- Linting.
+- Unit tests.
+- Integration tests.
+- Dependency checks.
+- Runtime inspection.
+- Relevant end-to-end tests.
+- API and data validation.
+- Responsive UI checks where feasible.
+
+When tests fail, inspect the actual failure and attempt an appropriate correction.
+
+Distinguish clearly between:
+
+- Code generated.
+- Changes applied.
+- Build successful.
+- Tests passed.
+- Runtime verified.
+- Deployment completed.
+
+Never say the app is fully tested merely because the code was generated.
+
+If the hosting environment does not provide filesystem writes, terminal access, a test runner, persistent execution or preview support, do not invent those capabilities. Explain the limitation and implement the strongest real workflow available.
+
+## 6.5 Safe application development
+
+Use secure execution boundaries for generated code.
+
+Do not run arbitrary untrusted code inside the main application process.
+
+Keep environment variables and credentials separate from public files.
+
+Do not silently overwrite important user files.
+
+Show significant changes for review when appropriate. Require confirmation for destructive operations and consequential external actions.
+
+Generated applications should receive suitable error handling and basic security checks.
+
+---
+
+# PART 7: UPGRADE THE KNOWLEDGE, DOCUMENT AND LEARNING SYSTEMS
+
+Keep the main chat simple while making advanced features genuinely useful.
+
+## 7.1 Library
+
+Create a unified Library for:
+
+- Saved conversations and answers.
+- Uploaded documents.
+- Notes.
+- Research.
+- Generated PDFs.
+- Projects and source files.
+- Flashcard decks.
+- Quiz history.
+- Reusable user-created materials.
+
+Provide search, clear organisation and useful metadata.
+
+Allow users to save, open, rename and remove their own material.
+
+Use real persistence rather than temporary in-memory placeholders for features advertised as saved.
+
+## 7.2 Document intelligence
+
+Support appropriate formats such as PDF, DOCX, TXT, CSV and images, depending on the actual extraction libraries and environment.
+
+For uploaded documents:
+
+- Extract content accurately.
+- Support scanned pages through genuine OCR when available.
+- Preserve relevant page numbers and source references.
+- Identify tables and mathematical notation where possible.
+- Chunk long documents intelligently.
+- Retrieve relevant source passages for questions.
+- Cite or identify the source location when supported.
+- Flag unreadable or ambiguous content.
+
+Do not invent text missing from an upload.
+
+When extracting multiple-choice questions, preserve the question, all answer options, numbering and relevant source details. Do not silently omit information.
+
+## 7.3 Study tools
+
+Offer contextual tools to create:
+
+- Flashcards.
+- Multiple-choice questions.
+- Interactive quizzes.
+- Step-by-step explanations.
+- Revision notes.
+- Study plans.
+- Concept summaries.
+
+Make the tools interactive and usable.
+
+Store progress when persistence is available. Do not substitute decorative cards for functioning learning features.
+
+## 7.4 PDF generation
+
+When users ask to create a PDF, generate a real downloadable PDF using a suitable implementation.
+
+Support readable typography, correct page breaks, mathematical expressions, diagrams, tables and consistent formatting.
+
+Verify the generated document where possible.
+
+Do not respond to a PDF request with a Markdown template that tells the user to use their browser's Print function when a real PDF workflow can be implemented.
+
+---
+
+# PART 8: ARCHITECTURE AND ENGINEERING QUALITY
+
+Inspect the existing stack before selecting new dependencies.
+
+Preserve useful existing libraries and avoid unnecessary rewrites.
+
+Use a modular architecture with clearly separated responsibilities:
+
+- Frontend and design system.
+- Conversation and message management.
+- Model-provider integrations.
+- Model routing.
+- Prompt and workflow management.
+- Tool execution.
+- Code workspace.
+- Document processing.
+- File storage.
+- Authentication and user settings where needed.
+- Persistence.
+- Logging, metrics and error handling.
+
+Use appropriate server-side services for credentials and protected operations.
+
+Validate input and tool output. Apply rate limits and request-size limits where appropriate. Use least-privilege permissions.
+
+Avoid hardcoded secrets, duplicated model logic, fragile global state and giant components that combine unrelated workflows.
+
+Do not add infrastructure that is unnecessary for the current deployment. Prefer the simplest reliable architecture that can support the requested features and grow over time.
+
+Before integrating an external repository or service, verify that it actually works with the chosen stack and deployment environment.
+
+---
+
+# PART 9: PERFORMANCE, COST AND RESOURCE MANAGEMENT
+
+Make the platform efficient enough for real use.
+
+Implement:
+
+- Streaming where supported.
+- Lazy loading for advanced tools.
+- Efficient message rendering.
+- Appropriate caching.
+- Reuse of established connections where supported.
+- Request cancellation.
+- Bounded concurrency.
+- Timeouts and sensible retry limits.
+- Efficient document chunking.
+- Background processing for long-running tasks where available.
+- Usage tracking when actual provider usage data is available.
+
+Avoid unnecessary paid API calls.
+
+Do not send confidential user content to external providers without making the integration and data flow clear.
+
+Do not promise unlimited tokens, free inference, unrestricted model access or unlimited context.
+
+Make performance and cost limitations explicit where they matter.
+
+---
+
+# PART 10: THE INTERFACE MUST NEVER BECOME A TECHNICAL CONTROL PANEL
+
+Remove the current unnecessary complexity.
+
+Do not make the following prominent on the main chat screen:
+
+- Raw context-token counters.
+- Processed-token statistics.
+- Fake model versions.
+- Decorative parameter counts.
+- Multiple competing mode selectors.
+- Excessive reasoning controls.
+- Unnecessary four-stage workflows.
+- Large cards for every tool.
+- Technical metadata that ordinary users do not need.
+
+Advanced information can exist under Settings or an optional diagnostics view.
+
+The default conversation screen should contain only the controls necessary to have a productive conversation.
+
+Use simple labels that people understand.
+
+Show task-specific options only when relevant.
+
+The user should not have to understand model orchestration, token windows, context management or inference infrastructure to use VITRAX AI.
+
+---
+
+# PART 11: REQUIRED VERIFICATION
+
+Do not finish after changing CSS.
+
+Actually inspect, implement and test the application.
+
+### Chat tests
+
+1. Send "give". Verify a natural clarification appears.
+2. Ask a simple question. Verify a direct answer.
+3. Ask a detailed technical question. Verify a coherent, readable explanation.
+4. Send multiple follow-up messages. Verify relevant conversation context is preserved.
+5. Stop a running response. Verify cancellation works where supported.
+6. Simulate a provider failure. Verify a clear error and recovery path.
+7. Verify streamed and completed messages render correctly.
+
+### Model tests
+
+1. Verify actual configured model identifiers.
+2. Confirm unavailable providers produce clear setup messages.
+3. Check secure server-side key handling.
+4. Confirm simple tasks do not trigger unnecessary model calls.
+5. Confirm complex workflows use tools or additional verification only when appropriate.
+6. Verify the interface does not invent context windows, token totals or capabilities.
+
+### Code workspace tests
+
+1. Create a new project.
+2. Generate a basic functioning application.
+3. Open and inspect real files.
+4. Modify an existing file.
+5. Run available build checks.
+6. Identify and attempt to fix a deliberately introduced error.
+7. Preview the result where supported.
+8. Verify saved changes and project persistence.
+9. Confirm unsupported operations are not falsely reported as successful.
+
+### Document and UI tests
+
+1. Upload a real supported file.
+2. Ask a question grounded in its content.
+3. Generate an actual PDF where the required libraries are available.
+4. Verify the downloaded file is usable.
+5. Test desktop and mobile layouts.
+6. Confirm that the sidebar, conversation, attachments, model selection, Library and Code workspace work as intended.
+7. Check loading, empty, failure and completed states.
+
+Report the actual outcomes. Never fabricate test results.
+
+---
+
+# PART 12: IMPLEMENTATION ORDER
+
+Work in this order to reduce unnecessary rework.
+
+**Phase 1: Audit and repair.**
+
+Inspect the existing code, reproduce the response problem, identify why task-specific instructions leak into general chat, inspect request latency and correct the underlying bugs.
+
+**Phase 2: Main interface.**
+
+Redesign the default screen, simplify navigation and implement the polished conversational experience.
+
+**Phase 3: Intelligence.**
+
+Improve prompt separation, model integration, streaming, routing, context handling, error handling and answer quality.
+
+**Phase 4: Code workspace.**
+
+Implement the dedicated development interface, actual file operations and the build-test-preview workflow supported by the environment.
+
+**Phase 5: Library and tools.**
+
+Improve document understanding, persistence, study features and PDF generation.
+
+**Phase 6: Hardening.**
+
+Run relevant tests, verify security, improve performance, correct responsive layouts and document remaining limitations.
+
+Do not present mockups as completed features. Do not replace functioning code with placeholder implementations to finish faster.
+
+Prioritise the most important working user journeys before adding optional features.
+
+---
+
+# FINAL ACCEPTANCE CRITERIA
+
+VITRAX AI is successful only when the following are true:
+
+- Opening the app immediately presents an intuitive conversation experience.
+- The primary interface feels as simple and approachable as modern conversational AI applications.
+- The AI gives useful, appropriately detailed answers instead of generic templates.
+- The current response-generation bug is fixed at its source.
+- Streaming, cancellation and error recovery work correctly where supported.
+- Model names and capabilities correspond to genuine configured services.
+- The application uses a sensible, maintainable AI architecture.
+- The dedicated Code workspace can perform real project operations rather than pretending to do them.
+- Generated software can be validated through actual tests and builds where the environment permits.
+- The Library, document tools and PDF workflows work rather than merely looking complete.
+- The interface remains clean, responsive and easy to use.
+- Security, costs, external dependencies and environmental limitations are handled honestly.
+- The user is told what was implemented, what was tested and what still requires setup.
+
+**Final instruction:** Start by inspecting the existing VITRAX AI project and fixing its most serious defects. Then implement the redesign and capabilities directly in the working codebase.
+
+Do not return another long proposal describing the application.
+
+Do not stop after producing a design mockup.
+
+Do not add fake AI models, fake usage counters or simulated development tools.
+
+Build the best working version possible within the actual environment, verify what you can, and clearly identify anything that requires additional credentials, infrastructure or permissions.
+
+The end result must combine an effortless everyday AI assistant with a powerful specialist development environment, keeping the intelligence sophisticated and the user experience beautifully simple.
