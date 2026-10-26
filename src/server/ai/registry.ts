@@ -77,7 +77,12 @@ function customModels(env: Env): ModelEntry[] {
 export function buildRegistry(env: Env = process.env): ModelEntry[] {
   const allowed = new Set(list(env.AI_ALLOWED_TIERS).length ? list(env.AI_ALLOWED_TIERS) : ['free', 'self_hosted', 'paid']);
   const entries = [
-    ...(env.LOVABLE_API_KEY && env.AI_DISABLE_LOVABLE !== 'true' ? lovableModels() : []),
+    ...(env.LOVABLE_API_KEY && env.AI_DISABLE_LOVABLE !== 'true' ? [...lovableModels(), {
+      id: 'lovable:openai/gpt-6-astra', model: 'openai/gpt-6-astra', name: 'GPT-6 Astra', provider: 'Lovable AI Gateway',
+      kind: 'openai_responses' as const, baseUrl: 'https://ai.gateway.lovable.dev/v1/responses', apiKeyEnv: 'LOVABLE_API_KEY',
+      capabilities: ['streaming', 'json', 'long_context'] as Capability[], contextTokens: 1_050_000, maxOutputTokens: 32_000,
+      tier: 'paid' as const, costPerMTokIn: 0, costPerMTokOut: 0, quality: 3 as const, priority: 50, tasks: ['chat', 'chat_quick', 'reasoning', 'code'] as AiTask[], concurrency: 8,
+    }] : []),
     ...presetModels(env),
     ...customModels(env),
   ];

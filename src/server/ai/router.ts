@@ -17,6 +17,8 @@ export interface RouterDeps {
   sleep?: (ms: number) => Promise<void>;
   random?: () => number;
   env?: Record<string, string | undefined>;
+  assertAccess?: (scope: string) => Promise<void>;
+  blockAccess?: (scope: string, error: AiError) => Promise<void>;
 }
 
 const HIGH_QUALITY_TASKS: AiTask[] = ['reasoning', 'document', 'code'];
@@ -67,7 +69,8 @@ export function createRouter(deps: RouterDeps = {}) {
     });
     if (req.preferredModel) {
       const i = eligible.findIndex(m => m.id === req.preferredModel || m.model === req.preferredModel);
-      if (i > 0) eligible.unshift(...eligible.splice(i, 1));
+      if (i < 0) throw new AiError('invalid_request', 'The selected model is unavailable or does not support this request.');
+      return { eligible: [eligible[i]], excluded };
     }
     // No surprise cost escalation: optionally forbid falling back from a free first choice to paid.
     if (env().AI_PAID_FALLBACK === 'false' && eligible[0] && eligible[0].tier !== 'paid') return { eligible: eligible.filter(m => m.tier !== 'paid'), excluded };
@@ -104,6 +107,7 @@ export function createRouter(deps: RouterDeps = {}) {
 
     for (const m of eligible) {
       const x = h(m.id);
+      if (m.provider === 'Lovable AI Gateway') await deps.assertAccess?.('lovable');
       if (x.cooldownUntil > now()) { soonest = Math.min(soonest, x.cooldownUntil - now()); continue; }
       if (x.inflight >= m.concurrency) continue;
       for (let retry = 0; retry <= sameModelRetries && attempts < maxAttempts; retry++) {
@@ -111,11 +115,11 @@ export function createRouter(deps: RouterDeps = {}) {
         const ctl = new AbortController();
         const onAbort = () => ctl.abort();
         req.signal?.addEventListener('abort', onAbort);
-        const timer = setTimeout(() => ctl.abort(), timeoutMs);
+        const timer = m.kind === 'openai_responses' ? undefined : setTimeout(() => ctl.abort(), timeoutMs);
         x.inflight++;
         try {
           const maxTokens = Math.max(256, Math.min(req.maxTokens || 4096, m.maxOutputTokens));
-          const r = await adapters[m.kind]({ entry: m, messages: req.messages, maxTokens, json: req.json, signal: ctl.signal,
+          const r = await adapters[m.kind]({ entry: m, messages: req.messages, maxTokens, json: req.json, outputSchema: req.outputSchema, signal: ctl.signal,
             onText: t => { delivered = true; req.onText?.(t); } });
           if (!r.content.trim()) throw new AiError('empty', r.stopReason === 'length' ? 'Output budget exhausted before any answer text.' : 'Empty output.', { provider: m.provider });
           if (req.validate) req.validate(r.content);
@@ -130,12 +134,14 @@ export function createRouter(deps: RouterDeps = {}) {
           if (ctl.signal.aborted) err = new AiError('timeout', 'Provider timed out.', { provider: m.provider });
           aiLog('warn', 'ai.attempt_failed', { model: m.id, kind: err.kind, status: err.status, attempt: attempts, task: req.task });
           last = err;
+          if (m.provider === 'Lovable AI Gateway' && (err.status === 402 || err.status === 403)) await deps.blockAccess?.('lovable', err);
+          if (!isFallbackEligible(err.kind)) throw err;
           // Once text reached the user we cannot silently switch models mid-answer.
           if (delivered) throw new AiError(err.kind === 'cancelled' ? 'cancelled' : 'upstream', 'The answer stream was interrupted.', { provider: m.provider });
           if (!isFallbackEligible(err.kind)) throw err;
           recordFailure(m, err);
           if (!isRetryableSameModel(err.kind) || retry === sameModelRetries) break;
-          const backoff = Math.min(4000, 400 * 2 ** retry) * (0.5 + random() * 0.5);
+          const backoff = err.retryAfterMs ?? Math.min(4000, 400 * 2 ** retry) * (0.5 + random() * 0.5);
           await sleep(backoff);
         } finally {
           x.inflight--; clearTimeout(timer); req.signal?.removeEventListener('abort', onAbort);
@@ -162,4 +168,7 @@ export function createRouter(deps: RouterDeps = {}) {
   return { complete, status, rank, _health: health };
 }
 
-export const aiRouter = createRouter();
+export const aiRouter = createRouter({
+  assertAccess: async scope => { const { assertAiAccess } = await import('./access-blocks.server'); await assertAiAccess(scope); },
+  blockAccess: async (scope, error) => { const { blockAiAccess } = await import('./access-blocks.server'); await blockAiAccess(scope, error); },
+});
